@@ -7,12 +7,14 @@ import { Footer } from "@/components/sections/Footer";
 export default function Home() {
   return (
     <>
-      <Nav />
-      <main>
-        <Hero />
-        <About />
-        <FeaturedProjects />
-      </main>
+      <div className="bg-page">
+        <Nav />
+        <main>
+          <Hero />
+          <About />
+          <FeaturedProjects />
+        </main>
+      </div>
       <Footer />
     </>
   );

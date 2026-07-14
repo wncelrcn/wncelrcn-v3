@@ -5,7 +5,7 @@ import { Doodle } from "@/components/sections/hero/Doodle";
 export function Hero() {
   return (
     <section className="relative">
-      <Container className="pt-[90px] pb-24 md:pt-[150px] md:pb-40">
+      <Container className="pt-14 pb-16 md:pt-24 md:pb-24">
         <Reveal>
           <h1 className="max-w-[1180px] text-display font-medium tracking-tight">
             I turn{" "}

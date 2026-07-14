@@ -17,15 +17,15 @@
   --color-muted-ink: rgba(0, 0, 0, 0.5);
   --color-faint-ink: rgba(0, 0, 0, 0.25);
 
-  /* Fluid type scale (maps to the Figma desktop sizes) */
-  --text-display: clamp(2.5rem, 9vw, 128px);
-  --text-display--line-height: 1.03;
-  --text-title: clamp(1.75rem, 4.5vw, 64px);
+  /* Fluid type scale (scaled down from the Figma desktop sizes for real viewports) */
+  --text-display: clamp(2.25rem, 6.5vw, 88px);
+  --text-display--line-height: 1.05;
+  --text-title: clamp(1.5rem, 3.2vw, 44px);
   --text-title--line-height: 1.1;
-  --text-subtitle: clamp(1.5rem, 3vw, 40px);
-  --text-subtitle--line-height: 1.15;
-  --text-tab: clamp(1.1rem, 2.2vw, 36px);
-  --text-lead: clamp(0.95rem, 1.6vw, 24px);
+  --text-subtitle: clamp(1.15rem, 2vw, 26px);
+  --text-subtitle--line-height: 1.2;
+  --text-tab: clamp(1rem, 1.6vw, 22px);
+  --text-lead: clamp(0.9rem, 1.15vw, 18px);
 
   /* Elevation */
   --shadow-pill: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -137,17 +137,23 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Continuous top-to-bottom page gradient, applied to the content region
+   above the footer so the full range completes exactly at the footer. */
+@utility bg-page {
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-page-from),
+    var(--color-page-to)
+  );
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply text-ink font-sans;
-    background: linear-gradient(
-      to bottom,
-      var(--color-page-from),
-      var(--color-page-to)
-    );
+    background-color: var(--color-page-from);
   }
   html {
     @apply font-sans;

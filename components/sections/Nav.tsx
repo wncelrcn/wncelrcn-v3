@@ -4,16 +4,16 @@ import { navLinks } from "@/lib/portfolio-data";
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-50 pt-5 md:pt-[55px]">
+    <header className="sticky top-0 z-50 pt-4 md:pt-6">
       <Container>
-        <nav className="flex h-[72px] items-center justify-between rounded-[40px] bg-white px-6 shadow-pill md:h-[115px] md:px-[58px]">
+        <nav className="flex h-14 items-center justify-between rounded-full bg-white px-5 shadow-pill md:h-16 md:px-8">
           <Link
             href="/"
-            className="text-xl font-medium tracking-tight md:text-[32px]"
+            className="text-lg font-medium tracking-tight md:text-2xl"
           >
             Wince Larcen
           </Link>
-          <ul className="flex items-center gap-5 text-sm md:gap-[50px] md:text-[24px]">
+          <ul className="flex items-center gap-4 text-sm md:gap-8 md:text-base">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <Link
