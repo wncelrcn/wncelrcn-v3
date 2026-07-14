@@ -47,7 +47,7 @@ export const education: TimelineEntry[] = [
     title: "BS in Computer Science with Specialization in Machine Learning",
     subtitle: "Mapúa Malayan Colleges Laguna",
     details: [
-      "Expected to graduate as Summa Cum Laude (1.15 Running GWA)",
+      "Expected to graduate as Summa Cum Laude (1.155 Running GWA)",
       "Consistently recognized as President’s and Dean’s Lister throughout my academic tenure",
     ],
   },

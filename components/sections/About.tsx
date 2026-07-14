@@ -80,7 +80,14 @@ export function About() {
           />
           <div>
             <h2 className="text-title font-medium text-balance">
-              Hi, I&rsquo;m Wince Larcen M. Rivano!
+              Hi, I&rsquo;m Wince Larcen M. Rivano!{" "}
+              <span
+                role="img"
+                aria-label="waving hand"
+                className="animate-wave inline-block origin-[70%_80%] motion-reduce:animate-none"
+              >
+                👋
+              </span>
             </h2>
             <p className="mt-1 text-subtitle font-medium">I&rsquo;m an AI Engineer</p>
           </div>
