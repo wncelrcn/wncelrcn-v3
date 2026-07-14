@@ -7,7 +7,7 @@ export function Hero() {
     <section className="relative">
       <Container className="pt-14 pb-16 md:pt-24 md:pb-28">
         <Reveal>
-          <h1 className="text-display font-medium tracking-[-0.01em]">
+          <h1 className="mx-auto w-fit text-display font-medium tracking-[-0.01em]">
             <span className="block whitespace-nowrap">
               {"I turn"}
               <Doodle
