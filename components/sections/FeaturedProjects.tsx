@@ -31,21 +31,17 @@ export function FeaturedProjects() {
         </div>
       </ScrollReveal>
 
-      <div className="mt-10 flex flex-col gap-[15px] md:mt-14">
-        <ScrollReveal>
-          <div className="grid grid-cols-1 gap-[15px] md:grid-cols-[700fr_455fr]">
-            <Card />
-            <Card />
-          </div>
-        </ScrollReveal>
-        <ScrollReveal delay={0.08}>
-          <div className="grid grid-cols-1 gap-[15px] sm:grid-cols-2 md:grid-cols-[390fr_360fr_390fr]">
-            <Card />
-            <Card />
-            <Card />
-          </div>
-        </ScrollReveal>
-      </div>
+      <ScrollReveal className="mt-10 flex flex-col gap-[15px] md:mt-14">
+        <div className="grid grid-cols-1 gap-[15px] md:grid-cols-[700fr_455fr]">
+          <Card />
+          <Card />
+        </div>
+        <div className="grid grid-cols-1 gap-[15px] sm:grid-cols-2 md:grid-cols-[390fr_360fr_390fr]">
+          <Card />
+          <Card />
+          <Card />
+        </div>
+      </ScrollReveal>
     </Section>
   );
 }
