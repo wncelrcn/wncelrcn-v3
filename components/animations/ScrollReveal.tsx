@@ -11,29 +11,41 @@ interface ScrollRevealProps {
   delay?: number;
 }
 
-/** Fades and rises its children in when scrolled into view. Skips motion when reduced-motion is requested. */
+/**
+ * Fades and rises its children in when scrolled into view.
+ * Uses an IntersectionObserver (fires immediately for elements already in view,
+ * so content can never get stuck hidden) and GSAP for the motion.
+ * Skips motion entirely when reduced-motion is requested.
+ */
 export function ScrollReveal({ children, className, y = 40, delay = 0 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      if (!ref.current) return;
+      const el = ref.current;
+      if (!el) return;
+
       if (prefersReducedMotion()) {
-        gsap.set(ref.current, { opacity: 1, y: 0 });
+        gsap.set(el, { opacity: 1, y: 0 });
         return;
       }
-      gsap.from(ref.current, {
-        opacity: 0,
-        y,
-        duration: 0.8,
-        delay,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 85%",
-          toggleActions: "play none none none",
+
+      gsap.set(el, { opacity: 0, y });
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              gsap.to(el, { opacity: 1, y: 0, duration: 0.8, delay, ease: "power3.out" });
+              obs.disconnect();
+            }
+          }
         },
-      });
+        { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
+      );
+
+      observer.observe(el);
+      return () => observer.disconnect();
     },
     { scope: ref },
   );
