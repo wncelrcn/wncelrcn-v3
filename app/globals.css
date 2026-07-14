@@ -7,8 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
-    var(--font-inter), "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
   --font-heading: var(--font-sans);
   /* Figma design tokens */
   --color-page-from: #e8f4fa;
@@ -18,7 +18,7 @@
   --color-faint-ink: rgba(0, 0, 0, 0.25);
 
   /* Fluid type scale (scaled down from the Figma desktop sizes for real viewports) */
-  --text-display: clamp(1.5rem, 8.5vw, 124px);
+  --text-display: clamp(1.5rem, 8vw, 116px);
   --text-display--line-height: normal;
   --text-title: clamp(1.5rem, 3.2vw, 44px);
   --text-title--line-height: 1.1;

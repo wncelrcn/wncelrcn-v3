@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-// SF Pro Display isn't licensed for web embedding. Inter is the closest
-// cross-platform match and is loaded here as the fallback; the font stack in
-// globals.css prefers the real SF Pro on Apple devices.
+// Inter is the primary typeface (loaded here) so every visitor sees the same
+// font regardless of platform. The font stack in globals.css falls back to the
+// system font only if Inter fails to load.
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
