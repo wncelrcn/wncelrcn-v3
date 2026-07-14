@@ -55,17 +55,11 @@ export const education: TimelineEntry[] = [
     period: "Aug 2024 — Aug 2025",
     title: "Association for Computing Machinery - Mapúa MCL Chapter",
     subtitle: "Research & Development Committee",
-    details: [
-      "Represented the school in intercollegiate programming contests and led a Fullstack Web Development Workshop (Feb 2025) teaching Grade 12 students to build their own portfolio websites with HTML, CSS, JavaScript, and Firebase.",
-    ],
   },
   {
     period: "Aug 2023 — Jun 2024",
     title: "Junior Philippine Computer Society - Mapúa MCL Chapter",
     subtitle: "Second Year Representative",
-    details: [
-      "Served as liaison between JPCS and the 2nd year student body, managing communications and student support.",
-    ],
   },
 ];
 
