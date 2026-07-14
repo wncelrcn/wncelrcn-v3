@@ -9,7 +9,7 @@ export function Hero() {
         <Reveal>
           <h1 className="text-display font-medium tracking-[-0.01em]">
             <span className="relative block whitespace-pre">
-              {`I turn          great ideas`}
+              {`I turn           great ideas`}
               <Doodle
                 src="/figma/doodle-heart-pencil.svg"
                 left={3.4}
@@ -19,7 +19,7 @@ export function Hero() {
               />
             </span>
             <span className="relative block whitespace-pre">
-              {`into things        people`}
+              {`into things          people`}
               <Doodle
                 src="/figma/doodle-gears.svg"
                 left={5.35}
