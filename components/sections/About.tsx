@@ -45,7 +45,7 @@ function TabButton({
       type="button"
       onClick={onClick}
       className={cn(
-        "transition-colors",
+        "transition-[color,scale] active:scale-[0.96]",
         active ? "text-ink" : "text-faint-ink hover:text-muted-ink",
       )}
     >
@@ -66,11 +66,11 @@ export function About() {
             alt="Wince Larcen Rivano"
             width={150}
             height={150}
-            className="size-[110px] shrink-0 rounded-full object-cover md:size-[150px]"
+            className="size-[110px] shrink-0 rounded-full object-cover ring-1 ring-black/10 md:size-[150px]"
             priority
           />
           <div>
-            <h2 className="text-title font-medium">
+            <h2 className="text-title font-medium text-balance">
               Hi, I&rsquo;m Wince Larcen M. Rivano!
             </h2>
             <p className="mt-1 text-subtitle font-medium">I&rsquo;m an AI Engineer</p>

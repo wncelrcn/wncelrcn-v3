@@ -20,10 +20,10 @@ export function FeaturedProjects() {
     <Section id="projects">
       <ScrollReveal>
         <div className="relative flex flex-col items-center gap-3 md:block md:text-center">
-          <h2 className="text-center text-title font-medium">Featured Projects</h2>
+          <h2 className="text-center text-title font-medium text-balance">Featured Projects</h2>
           <Link
             href="#projects"
-            className="inline-flex items-center gap-1 text-lead text-muted-ink underline decoration-solid underline-offset-4 transition-colors hover:text-ink md:absolute md:top-1/2 md:right-0 md:-translate-y-1/2"
+            className="inline-flex items-center gap-1 text-lead text-muted-ink underline decoration-solid underline-offset-4 transition-[color,scale] hover:text-ink active:scale-[0.96] md:absolute md:top-1/2 md:right-0 md:-translate-y-1/2"
           >
             See all Projects
             <ArrowUpRight className="size-[1.1em]" aria-hidden="true" />

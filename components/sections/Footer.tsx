@@ -18,7 +18,7 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 text-[clamp(1rem,1.4vw,20px)] font-medium transition-opacity hover:opacity-70"
+                    className="group inline-flex items-center gap-2 text-[clamp(1rem,1.4vw,20px)] font-medium transition-[opacity,scale] hover:opacity-70 active:scale-[0.96]"
                   >
                     <Image
                       src={social.icon}
@@ -42,7 +42,7 @@ export function Footer() {
             </p>
             <a
               href={`mailto:${contactEmail}`}
-              className="mt-3 inline-flex items-center gap-2 text-[clamp(1rem,1.3vw,20px)] font-medium transition-opacity hover:opacity-70 md:justify-end"
+              className="mt-3 inline-flex items-center gap-2 text-[clamp(1rem,1.3vw,20px)] font-medium transition-[opacity,scale] hover:opacity-70 active:scale-[0.96] md:justify-end"
             >
               <Mail className="size-6" aria-hidden="true" />
               <span>{contactEmail}</span>

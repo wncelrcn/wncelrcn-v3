@@ -7,7 +7,7 @@ export function Hero() {
     <section className="relative">
       <Container className="pt-14 pb-16 md:pt-24 md:pb-24">
         <Reveal>
-          <h1 className="max-w-[1180px] text-display font-medium tracking-tight">
+          <h1 className="max-w-[1180px] text-display font-medium tracking-tight text-balance">
             I turn{" "}
             <Doodle
               src="/figma/doodle-heart-pencil.svg"
