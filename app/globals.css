@@ -18,8 +18,8 @@
   --color-faint-ink: rgba(0, 0, 0, 0.25);
 
   /* Fluid type scale (scaled down from the Figma desktop sizes for real viewports) */
-  --text-display: clamp(2.25rem, 6.5vw, 88px);
-  --text-display--line-height: 1.05;
+  --text-display: clamp(1.5rem, 8.5vw, 124px);
+  --text-display--line-height: normal;
   --text-title: clamp(1.5rem, 3.2vw, 44px);
   --text-title--line-height: 1.1;
   --text-subtitle: clamp(1.15rem, 2vw, 26px);

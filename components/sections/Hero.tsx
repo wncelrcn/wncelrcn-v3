@@ -5,20 +5,30 @@ import { Doodle } from "@/components/sections/hero/Doodle";
 export function Hero() {
   return (
     <section className="relative">
-      <Container className="pt-14 pb-16 md:pt-24 md:pb-24">
+      <Container className="pt-14 pb-16 md:pt-24 md:pb-28">
         <Reveal>
-          <h1 className="max-w-[1180px] text-display font-medium tracking-tight text-balance">
-            I turn{" "}
-            <Doodle
-              src="/figma/doodle-heart-pencil.svg"
-              className="h-[1.35em] translate-y-[0.12em] rotate-[20deg]"
-            />{" "}
-            great ideas into things{" "}
-            <Doodle
-              src="/figma/doodle-gears.svg"
-              className="h-[1.1em] translate-y-[0.1em] rotate-[10deg]"
-            />{" "}
-            people actually use.
+          <h1 className="text-display font-medium tracking-[-0.01em]">
+            <span className="relative block whitespace-pre">
+              {`I turn          great ideas`}
+              <Doodle
+                src="/figma/doodle-heart-pencil.svg"
+                left={3.4}
+                height={1.59}
+                rotate={20.26}
+                offsetY={-0.28}
+              />
+            </span>
+            <span className="relative block whitespace-pre">
+              {`into things        people`}
+              <Doodle
+                src="/figma/doodle-gears.svg"
+                left={5.35}
+                height={1.37}
+                rotate={9.55}
+                offsetY={0}
+              />
+            </span>
+            <span className="block whitespace-pre">actually use.</span>
           </h1>
         </Reveal>
       </Container>
