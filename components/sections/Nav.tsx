@@ -14,7 +14,7 @@ export function Nav() {
 
   return (
     <header className="sticky top-0 z-50 pt-4 md:pt-6">
-      <Container>
+      <Container className="relative">
         <nav className="flex h-14 items-center justify-between rounded-full bg-white px-5 shadow-pill md:h-16 md:px-8">
           <Link
             href="/"
@@ -53,9 +53,9 @@ export function Nav() {
           </button>
         </nav>
 
-        {/* Mobile menu */}
+        {/* Mobile menu — floats over the page below the pill */}
         {open && (
-          <div className="mt-2 rounded-3xl bg-white p-2 shadow-pill md:hidden">
+          <div className="absolute inset-x-6 top-full z-50 mt-2 rounded-3xl bg-white p-2 shadow-pill duration-200 animate-in fade-in-0 slide-in-from-top-2 md:hidden">
             <ul className="flex flex-col">
               {navLinks.map((link) => (
                 <li key={link.label}>
