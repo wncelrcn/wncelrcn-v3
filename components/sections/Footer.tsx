@@ -20,17 +20,17 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex w-fit items-center gap-2.5 text-[clamp(1rem,1.5vw,20px)] leading-none font-medium transition-[opacity,scale] hover:opacity-70 active:scale-[0.96]"
+                  className="flex w-fit items-center gap-2.5 text-[clamp(0.95rem,1.3vw,18px)] leading-none font-medium transition-[opacity,scale] hover:opacity-70 active:scale-[0.96]"
                 >
                   <Image
                     src={social.icon}
                     alt=""
                     width={24}
                     height={24}
-                    className="size-6 object-contain"
+                    className="size-5 object-contain"
                   />
                   <span>{social.label}</span>
-                  <ArrowUpRight className="size-[18px] opacity-70" aria-hidden="true" />
+                  <ArrowUpRight className="size-4 opacity-70" aria-hidden="true" />
                 </a>
               </li>
             ))}
@@ -38,14 +38,14 @@ export function Footer() {
 
           {/* Right: contact */}
           <div className="md:text-right">
-            <p className="max-w-[440px] text-[clamp(1.125rem,1.9vw,24px)] leading-snug font-medium text-pretty text-muted-ink md:ml-auto">
+            <p className="max-w-[380px] text-[clamp(1rem,1.5vw,20px)] leading-snug font-medium text-pretty text-muted-ink md:ml-auto">
               For work, collabs, &amp; everything else, reach me at
             </p>
             <a
               href={`mailto:${contactEmail}`}
-              className="mt-3 inline-flex items-center gap-2 text-[clamp(1rem,1.5vw,20px)] font-medium transition-[opacity,scale] hover:opacity-70 active:scale-[0.96] md:justify-end"
+              className="mt-3 inline-flex items-center gap-2 text-[clamp(0.95rem,1.3vw,18px)] font-medium transition-[opacity,scale] hover:opacity-70 active:scale-[0.96] md:justify-end"
             >
-              <Mail className="size-6" aria-hidden="true" />
+              <Mail className="size-5" aria-hidden="true" />
               <span>{contactEmail}</span>
             </a>
           </div>

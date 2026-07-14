@@ -74,7 +74,7 @@ export interface SocialLink {
 export const socials: SocialLink[] = [
   {
     label: "Wince Larcen Rivano",
-    href: "https://www.linkedin.com/in/wince-larcen-rivano",
+    href: "https://www.linkedin.com/in/wincelarcen",
     icon: "/figma/social-linkedin.png",
   },
   { label: "wncelrcn", href: "https://github.com/wncelrcn", icon: "/figma/social-github.png" },
