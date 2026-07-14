@@ -9,30 +9,65 @@ export const navLinks: NavLink[] = [
   { label: "Practicum", href: "#practicum" },
 ];
 
-export interface ExperienceItem {
+/**
+ * A single timeline row shared by the Work Experience and Education tabs so both
+ * render through the same layout. `title` is the emphasized line, `subtitle` the
+ * muted line beneath it, and `details` optional bullet points (used by Education).
+ */
+export interface TimelineEntry {
   period: string;
-  role: string;
-  type: string;
+  title: string;
+  subtitle: string;
+  details?: string[];
 }
 
-export const experience: ExperienceItem[] = [
-  { period: "Apr 2026 — Present", role: "Co-Founder of Neko Labs", type: "Startup" },
-  { period: "Jan 2026 — Jul 2026", role: "AI Engineer Rookie at GoTyme Bank", type: "Internship" },
+export const experience: TimelineEntry[] = [
+  { period: "Apr 2026 — Present", title: "Co-Founder of Neko Labs", subtitle: "Startup" },
+  {
+    period: "Jan 2026 — Jul 2026",
+    title: "AI Engineer Rookie at GoTyme Bank",
+    subtitle: "Internship",
+  },
   {
     period: "Mar 2025 — Aug 2025",
-    role: "Frontend Dev Trainee & UI/UX Designer at Codebility",
-    type: "Internship",
+    title: "Frontend Dev Trainee & UI/UX Designer at Codebility",
+    subtitle: "Internship",
   },
-  { period: "Dec 2024 — Feb 2025", role: "Freelance Software Developer", type: "Freelance" },
+  { period: "Dec 2024 — Feb 2025", title: "Freelance Software Developer", subtitle: "Freelance" },
   {
     period: "Jul 2024 — Sep 2024",
-    role: "Software Engineering Fellow at Headstarter AI",
-    type: "Fellowship",
+    title: "Software Engineering Fellow at Headstarter AI",
+    subtitle: "Fellowship",
   },
 ];
 
-// Education tab has no content in the design yet — kept empty until provided.
-export const education: ExperienceItem[] = [];
+export const education: TimelineEntry[] = [
+  {
+    period: "Aug 2022 — Oct 2026",
+    title: "BS in Computer Science with Specialization in Machine Learning",
+    subtitle: "Mapúa Malayan Colleges Laguna",
+    details: [
+      "Expected to graduate as Summa Cum Laude (1.15 Running GWA)",
+      "Consistently recognized as President’s and Dean’s Lister throughout my academic tenure",
+    ],
+  },
+  {
+    period: "Aug 2024 — Aug 2025",
+    title: "Association for Computing Machinery - Mapúa MCL Chapter",
+    subtitle: "Research & Development Committee",
+    details: [
+      "Represented the school in intercollegiate programming contests and led a Fullstack Web Development Workshop (Feb 2025) teaching Grade 12 students to build their own portfolio websites with HTML, CSS, JavaScript, and Firebase.",
+    ],
+  },
+  {
+    period: "Aug 2023 — Jun 2024",
+    title: "Junior Philippine Computer Society - Mapúa MCL Chapter",
+    subtitle: "Second Year Representative",
+    details: [
+      "Served as liaison between JPCS and the 2nd year student body, managing communications and student support.",
+    ],
+  },
+];
 
 export interface SocialLink {
   label: string;

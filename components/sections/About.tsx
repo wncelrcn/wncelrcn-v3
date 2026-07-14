@@ -5,25 +5,34 @@ import Image from "next/image";
 import { Section } from "@/components/layout/Section";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { cn } from "@/lib/utils";
-import { experience, education, type ExperienceItem } from "@/lib/portfolio-data";
+import { experience, education, type TimelineEntry } from "@/lib/portfolio-data";
 
 type Tab = "work" | "education";
 
-function Timeline({ items }: { items: ExperienceItem[] }) {
+function Timeline({ items }: { items: TimelineEntry[] }) {
   if (items.length === 0) {
     return <p className="text-center text-muted-ink">More coming soon.</p>;
   }
   return (
-    <div className="flex flex-col gap-6 text-lead">
+    <div className="flex flex-col gap-8 text-lead">
       {items.map((item) => (
         <div
-          key={item.role}
-          className="grid grid-cols-1 gap-x-6 gap-y-0.5 sm:grid-cols-[minmax(200px,270px)_1fr]"
+          key={item.title}
+          className="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[minmax(180px,260px)_1fr]"
         >
           <p className="text-muted-ink">{item.period}</p>
           <div>
-            <p className="text-ink">{item.role}</p>
-            <p className="text-muted-ink">{item.type}</p>
+            <p className="text-ink">{item.title}</p>
+            <p className="text-muted-ink">{item.subtitle}</p>
+            {item.details && (
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-black/70 marker:text-black/40">
+                {item.details.map((detail) => (
+                  <li key={detail} className="pl-1">
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       ))}
@@ -88,7 +97,7 @@ export function About() {
           </TabButton>
         </div>
 
-        <div className="mx-auto mt-10 max-w-[900px] md:mt-14">
+        <div className="mx-auto mt-10 max-w-[960px] md:mt-14">
           <Timeline items={tab === "work" ? experience : education} />
         </div>
       </ScrollReveal>
