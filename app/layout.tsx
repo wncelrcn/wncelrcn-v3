@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Nav } from "@/components/sections/Nav";
+import { Footer } from "@/components/sections/Footer";
 
 // Inter is the primary typeface (loaded here) so every visitor sees the same
 // font regardless of platform. The font stack in globals.css falls back to the
@@ -23,7 +25,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-svh">
+        <div className="flex min-h-svh flex-col">
+          <div className="bg-page flex-1">
+            <Nav />
+            <main>{children}</main>
+          </div>
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }
