@@ -10,9 +10,7 @@ export function Footer() {
         <div className="flex flex-col justify-between gap-10 md:flex-row">
           {/* Left: heading + socials */}
           <div>
-            <h2 className="text-[clamp(1.5rem,3vw,40px)] font-medium">
-              Thanks for stopping by!
-            </h2>
+            <h2 className="text-subtitle font-medium">Thanks for stopping by!</h2>
             <ul className="mt-6 flex flex-col gap-3 md:mt-10">
               {socials.map((social) => (
                 <li key={social.label}>
@@ -39,7 +37,7 @@ export function Footer() {
 
           {/* Right: contact */}
           <div className="md:text-right">
-            <p className="max-w-[320px] text-[clamp(1rem,1.4vw,24px)] font-medium text-black/50 md:ml-auto">
+            <p className="max-w-[320px] text-lead font-medium text-muted-ink md:ml-auto">
               For work, collabs, &amp; everything else, reach me at
             </p>
             <a
@@ -52,7 +50,7 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="mt-12 text-center text-base text-black/70 md:mt-16">
+        <p className="mt-12 text-center text-base text-muted-ink md:mt-16">
           © Wince Larcen Rivano 2026. All Rights Reserved.
         </p>
       </Container>
