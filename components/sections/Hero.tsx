@@ -8,27 +8,29 @@ export function Hero() {
       <Container className="pt-14 pb-16 md:pt-24 md:pb-28">
         <Reveal>
           <h1 className="text-display font-medium tracking-[-0.01em]">
-            <span className="relative block whitespace-pre">
-              {`I turn           great ideas`}
+            <span className="block whitespace-nowrap">
+              {"I turn"}
               <Doodle
                 src="/figma/doodle-heart-pencil.svg"
-                left={3.4}
-                height={1.59}
+                width={2.5}
+                height={1.6}
                 rotate={20.26}
                 offsetY={-0.28}
               />
+              {"great ideas"}
             </span>
-            <span className="relative block whitespace-pre">
-              {`into things          people`}
+            <span className="block whitespace-nowrap">
+              {"into things"}
               <Doodle
                 src="/figma/doodle-gears.svg"
-                left={5.35}
-                height={1.37}
+                width={2}
+                height={1.38}
                 rotate={9.55}
-                offsetY={0}
+                offsetY={0.05}
               />
+              {"people"}
             </span>
-            <span className="block whitespace-pre">actually use.</span>
+            <span className="block whitespace-nowrap">actually use.</span>
           </h1>
         </Reveal>
       </Container>

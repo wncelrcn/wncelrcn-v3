@@ -38,7 +38,7 @@ export function Footer() {
 
           {/* Right: contact */}
           <div className="md:text-right">
-            <p className="max-w-[320px] text-[clamp(1.125rem,1.9vw,24px)] font-medium text-muted-ink md:ml-auto">
+            <p className="max-w-[440px] text-[clamp(1.125rem,1.9vw,24px)] leading-snug font-medium text-pretty text-muted-ink md:ml-auto">
               For work, collabs, &amp; everything else, reach me at
             </p>
             <a
