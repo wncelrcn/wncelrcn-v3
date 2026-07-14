@@ -8,7 +8,7 @@ export function Hero() {
       <Container className="pt-14 pb-16 md:pt-24 md:pb-28">
         <Reveal>
           {/* Mobile: inline doodles that flow with a naturally-wrapping headline */}
-          <h1 className="text-[clamp(2rem,9vw,3rem)] leading-[1.2] font-medium tracking-[-0.01em] md:hidden">
+          <h1 className="text-[clamp(2.5rem,12vw,3.75rem)] leading-[1.15] font-medium tracking-[-0.01em] md:hidden">
             {"I turn"}
             <Doodle
               src="/figma/doodle-heart-pencil.svg"
