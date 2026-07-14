@@ -9,6 +9,15 @@ export const navLinks: NavLink[] = [
   { label: "Practicum", href: "/practicum" },
 ];
 
+// Roles cycled by the typewriter after "I'm " in the About intro.
+export const roles: string[] = [
+  "an AI Engineer",
+  "a Builder",
+  "a Problem Solver",
+  "a Creative Thinker",
+  "a Lifelong Learner",
+];
+
 /**
  * A single timeline row shared by the Work Experience and Education tabs so both
  * render through the same layout. `title` is the emphasized line, `subtitle` the

@@ -5,7 +5,8 @@ import Image from "next/image";
 import { Section } from "@/components/layout/Section";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { cn } from "@/lib/utils";
-import { experience, education, type TimelineEntry } from "@/lib/portfolio-data";
+import { Typewriter } from "@/components/animations/Typewriter";
+import { experience, education, roles, type TimelineEntry } from "@/lib/portfolio-data";
 
 type Tab = "work" | "education";
 
@@ -89,7 +90,14 @@ export function About() {
                 👋
               </span>
             </h2>
-            <p className="mt-1 text-subtitle font-medium">I&rsquo;m an AI Engineer</p>
+            <p
+              className="mt-1 text-subtitle font-medium"
+              aria-label="I'm an AI Engineer, a Builder, a Problem Solver, a Creative Thinker, and a Lifelong Learner"
+            >
+              <span aria-hidden="true">
+                I&rsquo;m <Typewriter words={roles} />
+              </span>
+            </p>
           </div>
         </div>
       </ScrollReveal>
