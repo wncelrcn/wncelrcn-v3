@@ -91,7 +91,7 @@ export function About() {
               </span>
             </h2>
             <p
-              className="mt-1 text-subtitle font-medium"
+              className="mt-1 font-serif text-subtitle italic"
               aria-label="I'm an AI Engineer, a Builder, a Problem Solver, a Creative Thinker, and a Lifelong Learner"
             >
               <span aria-hidden="true">

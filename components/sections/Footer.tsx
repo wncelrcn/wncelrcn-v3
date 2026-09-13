@@ -5,7 +5,7 @@ import { socials, contactEmail } from "@/lib/portfolio-data";
 
 export function Footer() {
   return (
-    <footer className="bg-white">
+    <footer className="bg-accent-surface">
       <Container className="pt-12 pb-8 md:pt-[74px] md:pb-[34px]">
         <h2 className="text-[clamp(1.75rem,3.2vw,40px)] leading-[1.2] font-medium">
           Thanks for stopping by!

@@ -8,7 +8,7 @@ function Card({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "h-[240px] rounded-[30px] bg-white shadow-card transition-transform duration-300 hover:-translate-y-1 md:h-[335px]",
+        "h-[240px] rounded-[30px] bg-accent-surface shadow-card transition-transform duration-300 hover:-translate-y-1 md:h-[335px]",
         className,
       )}
     />

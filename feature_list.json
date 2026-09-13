@@ -1,0 +1,44 @@
+{
+  "features": [
+    {
+      "id": "feat-001",
+      "name": "Design system lock-in",
+      "description": "Tokens and UI rules: Instrument Sans + Instrument Serif Italic, page #F6F4F2, accent #F7F7F7, ink #000000, Lucide/shadcn icons. The About waving-hand emoji is intentional and must stay.",
+      "dependencies": [],
+      "status": "done",
+      "evidence": "./init.sh passed 2026-09-13. bg-accent-surface applied to Nav pill, mobile menu, FeaturedProjects cards, Footer; no bg-white remains on raised surfaces. Waving-hand emoji kept."
+    },
+    {
+      "id": "feat-002",
+      "name": "GSAP motion system",
+      "description": "All motion goes through @/lib/animations/gsap (useGSAP + ScrollTrigger). Reuse Reveal/ScrollReveal. Honor prefers-reduced-motion. No second animation library.",
+      "dependencies": ["feat-001"],
+      "status": "done",
+      "evidence": "./init.sh passed 2026-09-13. Audit: GSAP is the only JS motion library; Reveal/ScrollReveal/Typewriter honor prefers-reduced-motion; added motion-reduce:animate-none to Nav mobile menu; AGENTS.md motion rule clarified (GSAP for entrance/scroll, Tailwind transitions for hover/active, wave/blink micro-loops with guards)."
+    },
+    {
+      "id": "feat-003",
+      "name": "About section refactor",
+      "description": "Refactor About to the updated design: About Me / Work Experience / Education tabs; company-grouped experience (GoTyme Bank roles, Neko Labs Co-Founder) with Instrument Serif Italic meta lines; avatar + greeting + serif-italic role line. Waving-hand emoji stays. Project cards stay empty until their design lands.",
+      "dependencies": ["feat-001", "feat-002"],
+      "status": "not-started",
+      "evidence": ""
+    },
+    {
+      "id": "feat-004",
+      "name": "Navbar update",
+      "description": "Navbar reads Projects, Certifications, Awards. Remove the Practicum section/route and update navLinks + routes accordingly, keeping tokens, type, and GSAP motion.",
+      "dependencies": ["feat-003"],
+      "status": "not-started",
+      "evidence": ""
+    },
+    {
+      "id": "feat-005",
+      "name": "Verification and handoff",
+      "description": "Keep ./init.sh green (lint, test, build) and leave progress.md / session-handoff.md current after each feature.",
+      "dependencies": ["feat-001"],
+      "status": "not-started",
+      "evidence": ""
+    }
+  ]
+}
