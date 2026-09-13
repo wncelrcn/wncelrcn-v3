@@ -2,40 +2,72 @@
 
 import { useState, type ReactNode } from "react";
 import Image from "next/image";
+import { Building2, GraduationCap } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { cn } from "@/lib/utils";
 import { Typewriter } from "@/components/animations/Typewriter";
-import { experience, education, roles, type TimelineEntry } from "@/lib/portfolio-data";
+import {
+  experience,
+  education,
+  roles,
+  type OrgGroup,
+  type OrgKind,
+} from "@/lib/portfolio-data";
 
-type Tab = "work" | "education";
+type Tab = "about" | "work" | "education";
 
-function Timeline({ items }: { items: TimelineEntry[] }) {
-  if (items.length === 0) {
-    return <p className="text-center text-muted-ink">More coming soon.</p>;
-  }
+function OrgMark({ kind }: { kind: OrgKind }) {
+  const Icon = kind === "institution" ? GraduationCap : Building2;
   return (
-    <div className="flex flex-col gap-8 text-lead">
-      {items.map((item) => (
-        <div
-          key={item.title}
-          className="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[minmax(180px,260px)_1fr]"
-        >
-          <p className="text-muted-ink">{item.period}</p>
-          <div>
-            <p className="text-ink">{item.title}</p>
-            <p className="text-muted-ink">{item.subtitle}</p>
-            {item.details && (
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-black/70 marker:text-black/40">
-                {item.details.map((detail) => (
-                  <li key={detail} className="pl-1">
-                    {detail}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+    <div
+      className="flex size-[50px] shrink-0 items-center justify-center rounded-[10px] bg-accent-surface text-muted-ink"
+      aria-hidden
+    >
+      <Icon className="size-6" strokeWidth={1.5} />
+    </div>
+  );
+}
+
+function OrgGroupBlock({ org }: { org: OrgGroup }) {
+  return (
+    <div className="grid grid-cols-[50px_minmax(0,1fr)] gap-x-6">
+      <div className="relative">
+        <OrgMark kind={org.kind} />
+        <span
+          aria-hidden
+          className="absolute top-[50px] left-1/2 h-[32px] w-7 -translate-x-px rounded-bl-[10px] border-b border-l border-ink"
+        />
+      </div>
+      <div>
+        <p className="flex min-h-[50px] items-center font-medium text-ink">{org.name}</p>
+        <div className="mt-4 flex flex-col gap-5">
+          {org.entries.map((entry) => (
+            <div key={entry.id}>
+              <p className="font-medium text-ink">{entry.title}</p>
+              {entry.meta && (
+                <p className="mt-1 font-serif text-muted-ink italic">{entry.meta}</p>
+              )}
+              {entry.details && (
+                <ul className="mt-2 list-disc space-y-1 pl-5 font-serif text-muted-ink italic marker:text-muted-ink">
+                  {entry.details.map((detail) => (
+                    <li key={detail}>{detail}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function OrgList({ items }: { items: OrgGroup[] }) {
+  return (
+    <div className="flex flex-col gap-10 text-lead">
+      {items.map((org) => (
+        <OrgGroupBlock key={org.id} org={org} />
       ))}
     </div>
   );
@@ -53,9 +85,10 @@ function TabButton({
   return (
     <button
       type="button"
+      aria-pressed={active}
       onClick={onClick}
       className={cn(
-        "transition-[color,scale] active:scale-[0.96]",
+        "whitespace-nowrap transition-[color,scale] active:scale-[0.96]",
         active ? "text-ink" : "text-faint-ink hover:text-muted-ink",
       )}
     >
@@ -65,7 +98,7 @@ function TabButton({
 }
 
 export function About() {
-  const [tab, setTab] = useState<Tab>("work");
+  const [tab, setTab] = useState<Tab>("about");
 
   return (
     <Section id="about">
@@ -103,7 +136,14 @@ export function About() {
       </ScrollReveal>
 
       <ScrollReveal className="mt-14 md:mt-20" delay={0.05}>
-        <div className="flex justify-center gap-10 text-tab font-medium md:gap-16">
+        <div
+          role="group"
+          aria-label="About"
+          className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-tab font-medium sm:gap-x-10 md:gap-x-16"
+        >
+          <TabButton active={tab === "about"} onClick={() => setTab("about")}>
+            About Me
+          </TabButton>
           <TabButton active={tab === "work"} onClick={() => setTab("work")}>
             Work Experience
           </TabButton>
@@ -113,7 +153,8 @@ export function About() {
         </div>
 
         <div className="mx-auto mt-10 max-w-[960px] md:mt-14">
-          <Timeline items={tab === "work" ? experience : education} />
+          {tab === "work" && <OrgList items={experience} />}
+          {tab === "education" && <OrgList items={education} />}
         </div>
       </ScrollReveal>
     </Section>

@@ -21,8 +21,8 @@
       "name": "About section refactor",
       "description": "Refactor About to the updated design: About Me / Work Experience / Education tabs; company-grouped experience (GoTyme Bank roles, Neko Labs Co-Founder) with Instrument Serif Italic meta lines; avatar + greeting + serif-italic role line. Waving-hand emoji stays. Project cards stay empty until their design lands.",
       "dependencies": ["feat-001", "feat-002"],
-      "status": "not-started",
-      "evidence": ""
+      "status": "done",
+      "evidence": "./init.sh passed 2026-09-13. About Me / Work Experience / Education tabs; default About Me blank; Work Experience grouped from Figma 38:158 (GoTyme two roles, Neko Labs, Codebility, Freelance, Headstarter AI); Education is Mapúa MCL only (ACM/JPCS dropped); Lucide Building2/GraduationCap placeholder logos; waving-hand and typewriter role line kept."
     },
     {
       "id": "feat-004",
