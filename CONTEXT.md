@@ -40,6 +40,10 @@ _Avoid_: major, course
 The 50×50 Lucide stand-in (`Building2` for a Company, `GraduationCap` for an Institution) until the real mark is dropped in.
 _Avoid_: brand icon, company icon (until the real file exists)
 
+**Project**:
+A portfolio case study surfaced on the homepage featured grid or the `/projects` route. `title` and `href` are optional until the design lands; `featuredProjects` holds five empty slots until then.
+_Avoid_: featured card, project card (as a layout term — use **Project**)
+
 ## Relationships
 
 - The **About section** contains exactly three tabs: **About Me**, **Work Experience**, **Education**
@@ -49,6 +53,7 @@ _Avoid_: brand icon, company icon (until the real file exists)
 - **Education** currently contains one Institution; ACM and JPCS are not Education entries
 - A **Company** has one or more **Roles**; an **Institution** has one or more **Programs**
 - Each **Company** and **Institution** uses a **Placeholder logo** until the real mark is provided
+- **Featured Projects** on the homepage maps `featuredProjects` (five **Project** slots) through a shared `ProjectCard`; nav and placeholder pages derive from `siteRoutes`; `/projects` reads from `projects` when case studies exist
 
 ## Example dialogue
 

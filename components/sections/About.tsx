@@ -2,76 +2,14 @@
 
 import { useState, type ReactNode } from "react";
 import Image from "next/image";
-import { Building2, GraduationCap } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { cn } from "@/lib/utils";
 import { Typewriter } from "@/components/animations/Typewriter";
-import {
-  experience,
-  education,
-  roles,
-  type OrgGroup,
-  type OrgKind,
-} from "@/lib/portfolio-data";
+import { typewriterRoles } from "@/lib/about/content";
+import { EducationPanel, WorkExperiencePanel } from "@/components/about/groups";
 
 type Tab = "about" | "work" | "education";
-
-function OrgMark({ kind }: { kind: OrgKind }) {
-  const Icon = kind === "institution" ? GraduationCap : Building2;
-  return (
-    <div
-      className="flex size-[50px] shrink-0 items-center justify-center rounded-[10px] bg-accent-surface text-muted-ink"
-      aria-hidden
-    >
-      <Icon className="size-6" strokeWidth={1.5} />
-    </div>
-  );
-}
-
-function OrgGroupBlock({ org }: { org: OrgGroup }) {
-  return (
-    <div className="grid grid-cols-[50px_minmax(0,1fr)] gap-x-6">
-      <div className="relative">
-        <OrgMark kind={org.kind} />
-        <span
-          aria-hidden
-          className="absolute top-[50px] left-1/2 h-[32px] w-7 -translate-x-px rounded-bl-[10px] border-b border-l border-ink"
-        />
-      </div>
-      <div>
-        <p className="flex min-h-[50px] items-center font-medium text-ink">{org.name}</p>
-        <div className="mt-4 flex flex-col gap-5">
-          {org.entries.map((entry) => (
-            <div key={entry.id}>
-              <p className="font-medium text-ink">{entry.title}</p>
-              {entry.meta && (
-                <p className="mt-1 font-serif text-muted-ink italic">{entry.meta}</p>
-              )}
-              {entry.details && (
-                <ul className="mt-2 list-disc space-y-1 pl-5 font-serif text-muted-ink italic marker:text-muted-ink">
-                  {entry.details.map((detail) => (
-                    <li key={detail}>{detail}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function OrgList({ items }: { items: OrgGroup[] }) {
-  return (
-    <div className="flex flex-col gap-10 text-lead">
-      {items.map((org) => (
-        <OrgGroupBlock key={org.id} org={org} />
-      ))}
-    </div>
-  );
-}
 
 function TabButton({
   active,
@@ -128,7 +66,7 @@ export function About() {
               aria-label="I'm an AI Engineer, a Builder, a Problem Solver, a Creative Thinker, and a Lifelong Learner"
             >
               <span aria-hidden="true">
-                I&rsquo;m <Typewriter words={roles} />
+                I&rsquo;m <Typewriter words={typewriterRoles} />
               </span>
             </p>
           </div>
@@ -153,8 +91,8 @@ export function About() {
         </div>
 
         <div className="mx-auto mt-10 max-w-[960px] md:mt-14">
-          {tab === "work" && <OrgList items={experience} />}
-          {tab === "education" && <OrgList items={education} />}
+          {tab === "work" && <WorkExperiencePanel />}
+          {tab === "education" && <EducationPanel />}
         </div>
       </ScrollReveal>
     </Section>

@@ -2,9 +2,8 @@ import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/components/animations/Reveal";
 
 /**
- * Shared shell for the standalone routes (Projects, Recognition, Practicum)
- * until their real content is designed. Reuses the site's section rhythm and
- * type scale so it feels consistent with the home page.
+ * Shared shell for standalone pages from `siteRoutes` until their real content
+ * is designed. Reuses the site's section rhythm and type scale.
  */
 export function PagePlaceholder({
   title,

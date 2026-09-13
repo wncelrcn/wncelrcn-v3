@@ -1,16 +1,5 @@
-export interface NavLink {
-  label: string;
-  href: string;
-}
-
-export const navLinks: NavLink[] = [
-  { label: "Projects", href: "/projects" },
-  { label: "Recognition", href: "/recognition" },
-  { label: "Practicum", href: "/practicum" },
-];
-
-// Roles cycled by the typewriter after "I'm " in the About intro.
-export const roles: string[] = [
+/** Lines cycled by the typewriter after "I'm " in the About section intro. */
+export const typewriterRoles: string[] = [
   "an AI Engineer",
   "a Builder",
   "a Problem Solver",
@@ -18,34 +7,39 @@ export const roles: string[] = [
   "a Lifelong Learner",
 ];
 
-/**
- * A Company or Institution grouping: placeholder logo + name, then Roles or Programs.
- * `kind` chooses the Lucide stand-in until the real mark is dropped in.
- */
-export type OrgKind = "company" | "institution";
-
-export interface OrgEntry {
+/** A job under a Company. Title in sans; meta is the serif-italic period • location • type line. */
+export interface Role {
   id: string;
   title: string;
-  /** Serif-italic `period • location • type` line on Work Experience. */
-  meta?: string;
-  /** Serif-italic highlight bullets on Education. */
+  meta: string;
+}
+
+/** An employer grouping on Work Experience: name, then one or more Roles. */
+export interface Company {
+  id: string;
+  name: string;
+  roles: Role[];
+}
+
+/** A degree or course of study under an Institution, with optional italic highlight bullets. */
+export interface Program {
+  id: string;
+  title: string;
   details?: string[];
 }
 
-export interface OrgGroup {
+/** A school grouping on Education: name, then one or more Programs. */
+export interface Institution {
   id: string;
   name: string;
-  kind: OrgKind;
-  entries: OrgEntry[];
+  programs: Program[];
 }
 
-export const experience: OrgGroup[] = [
+export const workExperience: Company[] = [
   {
     id: "gotyme-bank",
     name: "GoTyme Bank",
-    kind: "company",
-    entries: [
+    roles: [
       {
         id: "gotyme-bank-ai-engineer",
         title: "AI Engineer",
@@ -61,8 +55,7 @@ export const experience: OrgGroup[] = [
   {
     id: "neko-labs",
     name: "Neko Labs",
-    kind: "company",
-    entries: [
+    roles: [
       {
         id: "neko-labs-co-founder",
         title: "Co-Founder",
@@ -73,8 +66,7 @@ export const experience: OrgGroup[] = [
   {
     id: "codebility",
     name: "Codebility",
-    kind: "company",
-    entries: [
+    roles: [
       {
         id: "codebility-frontend-trainee",
         title: "Frontend Dev Trainee & UI/UX Designer",
@@ -85,8 +77,7 @@ export const experience: OrgGroup[] = [
   {
     id: "freelance",
     name: "Freelance",
-    kind: "company",
-    entries: [
+    roles: [
       {
         id: "freelance-software-developer",
         title: "Freelance Software Developer",
@@ -97,8 +88,7 @@ export const experience: OrgGroup[] = [
   {
     id: "headstarter-ai",
     name: "Headstarter AI",
-    kind: "company",
-    entries: [
+    roles: [
       {
         id: "headstarter-ai-fellow",
         title: "Software Engineering Fellow",
@@ -108,12 +98,11 @@ export const experience: OrgGroup[] = [
   },
 ];
 
-export const education: OrgGroup[] = [
+export const education: Institution[] = [
   {
     id: "mapua-mcl",
     name: "Mapúa Malayan Colleges Laguna",
-    kind: "institution",
-    entries: [
+    programs: [
       {
         id: "mapua-mcl-bscs-ml",
         title: "BS in Computer Science with Specialization in Machine Learning",
@@ -125,32 +114,3 @@ export const education: OrgGroup[] = [
     ],
   },
 ];
-
-export interface SocialLink {
-  label: string;
-  href: string;
-  icon: string; // path under /public
-}
-
-// NOTE: hrefs are best-guess from the handles/name in the design.
-// GitHub is confirmed (wncelrcn); confirm the others before publishing.
-export const socials: SocialLink[] = [
-  {
-    label: "Wince Larcen Rivano",
-    href: "https://www.linkedin.com/in/wincelarcen",
-    icon: "/figma/social-linkedin.png",
-  },
-  { label: "wncelrcn", href: "https://github.com/wncelrcn", icon: "/figma/social-github.png" },
-  {
-    label: "wince.lrcn",
-    href: "https://www.instagram.com/wince.lrcn",
-    icon: "/figma/social-instagram.png",
-  },
-  {
-    label: "wncelrcn_dev",
-    href: "https://www.tiktok.com/@wncelrcn_dev",
-    icon: "/figma/social-tiktok.png",
-  },
-];
-
-export const contactEmail = "rivanowincelarcen@gmail.com";

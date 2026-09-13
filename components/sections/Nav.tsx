@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { navLinks } from "@/lib/portfolio-data";
+import { navLinks } from "@/lib/site-routes";
 import { cn } from "@/lib/utils";
 
 export function Nav() {
@@ -55,7 +55,7 @@ export function Nav() {
 
         {/* Mobile menu — floats over the page below the pill */}
         {open && (
-          <div className="absolute inset-x-6 top-full z-50 mt-2 rounded-3xl bg-accent-surface p-2 shadow-pill duration-200 animate-in fade-in-0 slide-in-from-top-2 motion-reduce:animate-none md:hidden">
+          <div className="absolute inset-x-6 top-full z-50 mt-2 animate-menu-in rounded-3xl bg-accent-surface p-2 shadow-pill motion-reduce:animate-none md:hidden">
             <ul className="flex flex-col">
               {navLinks.map((link) => (
                 <li key={link.label}>

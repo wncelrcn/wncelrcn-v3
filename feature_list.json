@@ -11,7 +11,7 @@
     {
       "id": "feat-002",
       "name": "GSAP motion system",
-      "description": "All motion goes through @/lib/animations/gsap (useGSAP + ScrollTrigger). Reuse Reveal/ScrollReveal. Honor prefers-reduced-motion. No second animation library.",
+      "description": "All motion goes through @/lib/animations/gsap (useGSAP). Reuse Reveal/ScrollReveal. Honor prefers-reduced-motion. No second animation library.",
       "dependencies": ["feat-001"],
       "status": "done",
       "evidence": "./init.sh passed 2026-09-13. Audit: GSAP is the only JS motion library; Reveal/ScrollReveal/Typewriter honor prefers-reduced-motion; added motion-reduce:animate-none to Nav mobile menu; AGENTS.md motion rule clarified (GSAP for entrance/scroll, Tailwind transitions for hover/active, wave/blink micro-loops with guards)."
@@ -29,8 +29,8 @@
       "name": "Navbar update",
       "description": "Navbar reads Projects, Certifications, Awards. Remove the Practicum section/route and update navLinks + routes accordingly, keeping tokens, type, and GSAP motion.",
       "dependencies": ["feat-003"],
-      "status": "not-started",
-      "evidence": ""
+      "status": "done",
+      "evidence": "./init.sh passed 2026-09-13. navLinks: Projects, Certifications, Awards; /certifications and /awards placeholder routes added; /practicum and /recognition removed; Nav unchanged (reads navLinks); navLinks test added."
     },
     {
       "id": "feat-005",

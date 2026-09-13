@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { socials, contactEmail } from "@/lib/portfolio-data";
+import { contactEmail, socials } from "@/lib/contact";
 
 export function Footer() {
   return (

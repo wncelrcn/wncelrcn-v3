@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Personal portfolio of Wince Larcen Rivano. Next.js App Router, Tailwind v4, shadcn, GSAP.
+Personal portfolio of Wince Larcen Rivano. Next.js App Router, Tailwind v4, GSAP.
 
 ## Startup Workflow
 
@@ -27,8 +27,8 @@ These are non-negotiable. Do not introduce alternatives.
 | Accent | `#F7F7F7` | Cards, pills, raised surfaces (`--color-accent-surface`) |
 | Text | `#000000` | Primary ink (`--color-ink`) |
 
-- **Icons**: Lucide (`lucide-react`) or shadcn. No emojis in UI, copy, alt text, or commits, except the intentional waving-hand emoji after the About greeting in `components/sections/About.tsx`. Do not remove it.
-- **Motion**: entrance/scroll/sequence motion goes through GSAP + `@gsap/react` (`useGSAP`) via `@/lib/animations/gsap`. Instant hover/active feedback may use Tailwind transitions; `animate-wave`/`animate-blink` micro-loops stay with `motion-reduce` guards. Honor `prefers-reduced-motion`. Do not add a second JS animation library.
+- **Icons**: Lucide (`lucide-react`). No emojis in UI, copy, alt text, or commits, except the intentional waving-hand emoji after the About greeting in `components/sections/About.tsx`. Do not remove it.
+- **Motion**: entrance/scroll/sequence motion goes through GSAP + `@gsap/react` (`useGSAP`) via `@/lib/animations/gsap`. Scroll-triggered reveals use `ScrollReveal` (IntersectionObserver + GSAP); mount reveals use `Reveal`. Do not register ScrollTrigger unless an ADR supersedes `docs/adr/0001-scroll-reveal-strategy.md`. Instant hover/active feedback may use Tailwind transitions; `animate-wave`/`animate-blink` micro-loops stay with `motion-reduce` guards. Honor `prefers-reduced-motion`. Do not add a second JS animation library.
 - Reuse existing tokens in `app/globals.css`. Do not hardcode a parallel palette.
 
 ## Working Rules

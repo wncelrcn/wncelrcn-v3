@@ -1,6 +1,6 @@
 # wncelrcn-v3
 
-Professional personal portfolio — Next.js (App Router) + TypeScript + Tailwind CSS v4 + shadcn/ui + GSAP.
+Professional personal portfolio — Next.js (App Router) + TypeScript + Tailwind CSS v4 + GSAP.
 
 Design implemented from Figma: *Portfolio Redesign V3*.
 
@@ -18,8 +18,7 @@ npm run test     # run unit tests (Vitest)
 - `app/` — routes, root layout, global styles
 - `components/sections/` — page sections (Nav, Hero, About, FeaturedProjects, Footer)
 - `components/animations/` — reusable GSAP wrappers
-- `components/ui/` — shadcn/ui primitives
-- `lib/` — utilities and animation setup
+- `lib/` — content, routes, utilities, and animation setup
 - `public/figma/` — design assets exported from Figma
 - `docs/superpowers/` — design spec and implementation plan
 
