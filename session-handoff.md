@@ -2,57 +2,59 @@
 
 ## Current Objective
 
-- Goal: planned features feat-001–005 are done; next session starts new work
-- Current status: harness green; `origin/main` at `3578ca5` plus this feat-005 doc update
+- Goal: feat-006 Projects page from Figma Desktop-5
+- Current status: done; harness green; About tab panels stagger in with Reveal
 - Branch: `main`
 
 ## Completed
 
-- [x] feat-001 through feat-004 (product)
-- [x] feat-005 (verification and handoff)
-- [x] Domain split, site-routes registry, About groups, ProjectCard, ADR-0001
-- [x] Unused shadcn / `@base-ui` / `cva` / `tw-animate-css` removed
+- [x] Domain: Project highlight vs listing vs Featured Projects; Tagline vs Tech stack; Blurb vs Extended description; Project modal
+- [x] `/projects` route with highlights, listings, and modal
+- [x] Configurable records in `lib/projects.ts`
+- [x] Homepage featured grid left as blank cover cards
 
 ## Verification Evidence
 
 | Check | Command | Result | Notes |
 |---|---|---|---|
-| Install / lint / test / build | `./init.sh` | passed 2026-09-14 | 19 tests |
-| Routes | `npm run build` | `/`, `/[slug]` → `/projects`, `/certifications`, `/awards` | SSG via `generateStaticParams` |
-| Remote | `git status` | `main` tracks `origin/main` | product commit `3578ca5` pushed |
+| Install / lint / test / build | `./init.sh` | passed 2026-09-15 | 26 tests |
+| Routes | `npm run build` | `/projects` static; `[slug]` → `/certifications`, `/awards` | |
+| Browser | `/projects` + `/` | highlights and listings open the modal; homepage cards unchanged | |
+| Browser | `/projects` modal | 390px: media above copy; 1280px: copy left, media right | 2026-09-15 |
+| Browser | `/projects` listing gap | 80px mobile / 128px desktop between highlights and listings | 2026-09-15 |
+| Browser | `/projects` modal motion | enter finishes with visible copy; X and `cancel` close after exit tween; reopen works | 2026-09-15 |
+| Browser | `/` About tabs | Work and Education groups enter on mount; About Me stays empty | 2026-09-15 |
 
 ## Startup for the next session
 
 1. Read `AGENTS.md` and `CONTEXT.md`
-2. Read `feature_list.json` (all five features done) and this file
+2. Read `feature_list.json` (feat-001–006 done) and this file
 3. Run `./init.sh` before editing
-4. Add new features to `feature_list.json` — do not reopen 001–005 unless something is broken
-5. One feature at a time
+4. Fill real Project records in `lib/projects.ts` or start Certifications/Awards
 
 ## Key files
 
 | What | Path |
 |---|---|
-| About content | `lib/about/content.ts` |
+| Project records | `lib/projects.ts` |
+| Highlights / listings / modal | `components/projects/` |
+| Projects page | `app/projects/page.tsx` |
 | Site routes | `lib/site-routes.ts` |
-| Projects | `lib/projects.ts` |
-| Contact | `lib/contact.ts` |
-| About groups | `components/about/groups.tsx` |
-| Placeholder pages | `app/[slug]/page.tsx` |
-| Scroll reveal | `docs/adr/0001-scroll-reveal-strategy.md` |
+| About content | `lib/about/content.ts` |
 
 ## Domain (from CONTEXT.md)
 
-- **About section** has three tabs: **About Me** (default, blank), **Work Experience**, **Education**
-- Do not invent About Me copy; do not put ACM/JPCS in Education
-- Use **Placeholder logos** until real marks land
+- **Project highlights** are the six named tiles; **Project listings** are the wide rows
+- **Featured Projects** is homepage-only, five blank cover cards
+- Click opens the **Project modal**, not a case-study route
+- **Tagline** / **Blurb** are listing-only; **Tech stack** / **Extended description** are modal-only
 
-## Deferred (do not reopen without cause)
+## Deferred
 
-- Shared fade-in hook for `Reveal` / `ScrollReveal` (two wrappers, different triggers)
-- `docs/superpowers/*` is historical; live rules are `AGENTS.md` + ADR-0001
-- Promote `/projects` to `app/projects/page.tsx` only when case studies exist
+- Real marks, screenshots, and live links (edit the Project records)
+- Deep-link / share URL for an open modal
+- Certifications and Awards real pages
 
 ## Recommended next step
 
-Add the next feature to `feature_list.json` and implement it. Content is blocked on Figma for About Me, project cards, Certifications, and Awards.
+Replace placeholder fields on each Project in `lib/projects.ts` as real copy and assets land.

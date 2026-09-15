@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { getSiteRoute, navLinks, siteRoutes } from "@/lib/site-routes";
+import { getSiteRoute, getSlugPageParams, navLinks, siteRoutes } from "@/lib/site-routes";
 
 describe("siteRoutes", () => {
   it("lists Projects, Certifications, and Awards in order", () => {
@@ -35,12 +35,22 @@ describe("navLinks", () => {
     ]);
   });
 
-  it("points to slugs served by the dynamic route", () => {
+  it("points nav hrefs at real routes", () => {
+    expect(existsSync(join(process.cwd(), "app", "projects", "page.tsx"))).toBe(true);
     expect(existsSync(join(process.cwd(), "app", "[slug]", "page.tsx"))).toBe(true);
 
     for (const link of navLinks) {
       const slug = link.href.replace(/^\//, "");
       expect(getSiteRoute(slug), `${link.href} is missing from siteRoutes`).toBeDefined();
     }
+  });
+});
+
+describe("getSlugPageParams", () => {
+  it("omits the dedicated /projects route", () => {
+    expect(getSlugPageParams().map((param) => param.slug)).toEqual([
+      "certifications",
+      "awards",
+    ]);
   });
 });

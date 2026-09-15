@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
-import { getSiteRoute, siteRoutes } from "@/lib/site-routes";
+import { getSiteRoute, getSlugPageParams } from "@/lib/site-routes";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
-  return siteRoutes.map(({ slug }) => ({ slug }));
+  return getSlugPageParams();
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

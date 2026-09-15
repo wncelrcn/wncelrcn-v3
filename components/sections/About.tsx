@@ -26,7 +26,7 @@ function TabButton({
       aria-pressed={active}
       onClick={onClick}
       className={cn(
-        "whitespace-nowrap transition-[color,scale] active:scale-[0.96]",
+        "inline-flex min-h-10 items-center whitespace-nowrap transition-[color,scale] active:scale-[0.96]",
         active ? "text-ink" : "text-faint-ink hover:text-muted-ink",
       )}
     >
@@ -40,16 +40,18 @@ export function About() {
 
   return (
     <Section id="about">
-      <ScrollReveal>
-        <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:gap-8 sm:text-left">
+      <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:gap-8 sm:text-left">
+        <ScrollReveal y={20}>
           <Image
             src="/figma/avatar.png"
             alt="Wince Larcen Rivano"
             width={150}
             height={150}
-            className="size-[110px] shrink-0 rounded-full object-cover ring-1 ring-black/10 md:size-[150px]"
+            className="size-[110px] shrink-0 rounded-full object-cover outline outline-1 -outline-offset-1 outline-black/10 md:size-[150px]"
             priority
           />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1} y={20}>
           <div>
             <h2 className="text-title font-medium text-balance">
               Hi, I&rsquo;m Wince Larcen M. Rivano!{" "}
@@ -70,10 +72,10 @@ export function About() {
               </span>
             </p>
           </div>
-        </div>
-      </ScrollReveal>
+        </ScrollReveal>
+      </div>
 
-      <ScrollReveal className="mt-14 md:mt-20" delay={0.05}>
+      <ScrollReveal className="mt-14 md:mt-20" delay={0.2} y={20}>
         <div
           role="group"
           aria-label="About"
@@ -89,12 +91,12 @@ export function About() {
             Education
           </TabButton>
         </div>
-
-        <div className="mx-auto mt-10 max-w-[960px] md:mt-14">
-          {tab === "work" && <WorkExperiencePanel />}
-          {tab === "education" && <EducationPanel />}
-        </div>
       </ScrollReveal>
+
+      <div className="mx-auto mt-10 max-w-[960px] md:mt-14">
+        {tab === "work" && <WorkExperiencePanel />}
+        {tab === "education" && <EducationPanel />}
+      </div>
     </Section>
   );
 }

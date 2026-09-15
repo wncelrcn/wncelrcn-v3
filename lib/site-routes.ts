@@ -12,7 +12,7 @@ export const siteRoutes: SiteRoute[] = [
     label: "Projects",
     slug: "projects",
     title: "Projects",
-    description: "A closer look at the things I've built — full case studies are on the way.",
+    description: "Software projects, from highlights to the rest of the work.",
     metaDescription: "A closer look at what Wince Larcen Rivano has built.",
   },
   {
@@ -38,4 +38,11 @@ export const navLinks = siteRoutes.map(({ label, slug }) => ({
 
 export function getSiteRoute(slug: string): SiteRoute | undefined {
   return siteRoutes.find((route) => route.slug === slug);
+}
+
+/** Params for `app/[slug]`. Dedicated routes like `/projects` are excluded. */
+export function getSlugPageParams() {
+  return siteRoutes
+    .filter((route) => route.slug !== "projects")
+    .map(({ slug }) => ({ slug }));
 }

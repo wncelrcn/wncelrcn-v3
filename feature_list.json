@@ -22,7 +22,7 @@
       "description": "Refactor About to the updated design: About Me / Work Experience / Education tabs; company-grouped experience (GoTyme Bank roles, Neko Labs Co-Founder) with Instrument Serif Italic meta lines; avatar + greeting + serif-italic role line. Waving-hand emoji stays. Project cards stay empty until their design lands.",
       "dependencies": ["feat-001", "feat-002"],
       "status": "done",
-      "evidence": "./init.sh passed 2026-09-13. About Me / Work Experience / Education tabs; default About Me blank; Work Experience grouped from Figma 38:158 (GoTyme two roles, Neko Labs, Codebility, Freelance, Headstarter AI); Education is Mapúa MCL only (ACM/JPCS dropped); Lucide Building2/GraduationCap placeholder logos; waving-hand and typewriter role line kept. Rendering lives in components/about/groups.tsx; data in lib/about/content.ts."
+      "evidence": "./init.sh passed 2026-09-15 (26 tests). About Me / Work Experience / Education tabs; default About Me blank; Work Experience grouped from Figma 38:158; Education is Mapúa MCL only. Greeting avatar and copy use separate ScrollReveals; tab panels are outside that wrapper. Work/Education company and institution groups stagger in with Reveal (0.1s, y=16) on tab change. Waving-hand emoji kept."
     },
     {
       "id": "feat-004",
@@ -39,6 +39,14 @@
       "dependencies": ["feat-001"],
       "status": "done",
       "evidence": "./init.sh passed 2026-09-14. feat-001–004 closed; architecture cleanup and shadcn removal on origin/main at 3578ca5. progress.md and session-handoff.md updated for a clean next-session start. Planned feature list is complete; next work is new features/content."
+    },
+    {
+      "id": "feat-006",
+      "name": "Projects page",
+      "description": "Build /projects from Figma Desktop-5: six Project highlights, three Project listings, shared Project modal (name, tech stack, extended description, optional links, media carousel). Data-driven placeholders. Homepage Featured Projects stays five blank cover cards.",
+      "dependencies": ["feat-004", "feat-005"],
+      "status": "done",
+      "evidence": "./init.sh passed 2026-09-15 (26 tests). /projects is a dedicated route (out of [slug]). Six Project highlights plus three listings. Shared Project modal with GSAP enter/exit (showModal/close stay source of truth; Escape cancel is prevented then closed after a 150ms exit). Media above copy on mobile. Highlight-to-listing gap 80px/128px. getSlugPageParams omits projects. Homepage Featured Projects stays five blank cover cards."
     }
   ]
 }

@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
-import type { Project } from "@/lib/projects";
+import type { FeaturedSlot } from "@/lib/projects";
 
 export function ProjectCard({
   project,
   className,
 }: {
-  project: Project;
+  project: FeaturedSlot;
   className?: string;
 }) {
   return (

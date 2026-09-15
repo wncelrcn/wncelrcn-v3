@@ -93,4 +93,7 @@
   html {
     @apply font-sans;
   }
+  .project-modal::backdrop {
+    background-color: rgb(0 0 0 / var(--modal-scrim, 0.4));
+  }
 }

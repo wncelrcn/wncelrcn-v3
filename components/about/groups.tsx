@@ -1,5 +1,8 @@
+"use client";
+
 import type { ReactNode } from "react";
 import { Building2, GraduationCap } from "lucide-react";
+import { Reveal } from "@/components/animations/Reveal";
 import { education, workExperience, type Company, type Institution } from "@/lib/about/content";
 
 type PlaceholderLogoKind = "company" | "institution";
@@ -77,8 +80,10 @@ export function InstitutionGroup({ institution }: { institution: Institution }) 
 export function WorkExperiencePanel() {
   return (
     <div className="flex flex-col gap-10 text-lead">
-      {workExperience.map((company) => (
-        <CompanyGroup key={company.id} company={company} />
+      {workExperience.map((company, index) => (
+        <Reveal key={company.id} delay={index * 0.1} y={16}>
+          <CompanyGroup company={company} />
+        </Reveal>
       ))}
     </div>
   );
@@ -87,8 +92,10 @@ export function WorkExperiencePanel() {
 export function EducationPanel() {
   return (
     <div className="flex flex-col gap-10 text-lead">
-      {education.map((institution) => (
-        <InstitutionGroup key={institution.id} institution={institution} />
+      {education.map((institution, index) => (
+        <Reveal key={institution.id} delay={index * 0.1} y={16}>
+          <InstitutionGroup institution={institution} />
+        </Reveal>
       ))}
     </div>
   );
