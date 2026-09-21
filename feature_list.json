@@ -47,6 +47,14 @@
       "dependencies": ["feat-004", "feat-005"],
       "status": "done",
       "evidence": "./init.sh passed 2026-09-15 (26 tests). /projects is a dedicated route (out of [slug]). Six Project highlights plus three listings. Shared Project modal with GSAP enter/exit (showModal/close stay source of truth; Escape cancel is prevented then closed after a 150ms exit). Media above copy on mobile. Highlight-to-listing gap 80px/128px. getSlugPageParams omits projects. Homepage Featured Projects stays five blank cover cards."
+    },
+    {
+      "id": "feat-007",
+      "name": "Certifications page",
+      "description": "Build /certifications from Figma Desktop-6: twelve Certification cards (issuer Placeholder logo, title, View Certification + circular arrow as one Certification link in a new tab). Data-driven records. Dedicated route. Awards stays on [slug].",
+      "dependencies": ["feat-006"],
+      "status": "done",
+      "evidence": "./init.sh passed 2026-09-15 (31 tests). Dedicated /certifications (out of [slug]). Twelve dummy Certification cards; issuer Placeholder logos; View Certification + circular arrow open the Certification link in a new tab. Awards stays on [slug]."
     }
   ]
 }

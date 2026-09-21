@@ -19,7 +19,7 @@ export const siteRoutes: SiteRoute[] = [
     label: "Certifications",
     slug: "certifications",
     title: "Certifications",
-    description: "Credentials and certifications I've earned along the way — coming soon.",
+    description: "Credentials earned along the way.",
     metaDescription: "Professional certifications earned by Wince Larcen Rivano.",
   },
   {
@@ -40,9 +40,11 @@ export function getSiteRoute(slug: string): SiteRoute | undefined {
   return siteRoutes.find((route) => route.slug === slug);
 }
 
+const dedicatedSlugs = new Set(["projects", "certifications"]);
+
 /** Params for `app/[slug]`. Dedicated routes like `/projects` are excluded. */
 export function getSlugPageParams() {
   return siteRoutes
-    .filter((route) => route.slug !== "projects")
+    .filter((route) => !dedicatedSlugs.has(route.slug))
     .map(({ slug }) => ({ slug }));
 }

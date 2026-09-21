@@ -37,7 +37,7 @@ A degree or course of study under an Institution, with optional italic highlight
 _Avoid_: major, course
 
 **Placeholder logo**:
-The Lucide stand-in until the real mark is dropped in. 50×50 `Building2` for a Company, 50×50 `GraduationCap` for an Institution, and a small glyph in the name pill for a Project highlight.
+The Lucide stand-in until the real mark is dropped in. 50×50 `Building2` for a Company, 50×50 `GraduationCap` for an Institution, a small glyph in the name pill for a Project highlight, and the issuer mark on a Certification card.
 _Avoid_: brand icon, company icon (until the real file exists)
 
 **Project**:
@@ -88,6 +88,26 @@ _Avoid_: href, social link (footer)
 A screenshot or mockup in the Project modal carousel.
 _Avoid_: cover picture (that belongs to Featured Projects)
 
+**Certification**:
+A named credential shown as a card on the Certifications page. Day one ships twelve dummy cards from Figma Desktop-6 (`5:17`).
+_Avoid_: certificate, credential (as a layout term), Project
+
+**Certifications page**:
+The `/certifications` route. It lists every Certification.
+_Avoid_: certs page, credentials page
+
+**Certification link**:
+The outbound URL for a Certification. Opened in a new tab from View Certification and the circular arrow as one control, not from the title or Issuer mark.
+_Avoid_: href, Project link
+
+**View Certification**:
+The italic underlined CTA label beside the circular arrow on a Certification card. The label and the arrow are one control; together they open the Certification link.
+_Avoid_: view credential, see certificate, live site
+
+**Issuer**:
+The organization that granted a Certification. Shown as a Placeholder logo on the card until the real mark is provided.
+_Avoid_: provider, company (that is Work Experience)
+
 ## Relationships
 
 - The **About section** contains exactly three tabs: **About Me**, **Work Experience**, **Education**
@@ -109,6 +129,16 @@ _Avoid_: cover picture (that belongs to Featured Projects)
 - A **Tagline** is not a **Tech stack**; a **Blurb** is not an **Extended description**
 - A **Project modal** may include zero or more **Project links** and **Project media**
 - Until real copy exists, a **Project** may ship with placeholder **Tagline**, **Blurb**, **Tech stack**, **Extended description**, **Project links**, and **Project media**; swapping those fields later must not require layout changes
+- Every **Certification** appears on the **Certifications page**
+- A **Certification** is not a **Project**; it has no **Project modal**
+- A **Certification** belongs to one **Issuer** and has one **Certification link**
+- **Issuers** do not group the **Certifications page**; the page is a flat grid of cards
+- **View Certification** and the circular arrow are one control that opens the **Certification link**
+- The title and **Issuer** mark on a **Certification** card are not the **Certification link**
+- Each **Certification** uses a **Placeholder logo** for its **Issuer** until the real mark is provided
+- The **Certifications page** ships twelve dummy **Certification** cards matching Figma Desktop-6; filling real credentials is an edit to the records, not the layout
+- A **Certification** card is not an Awards tile
+- A **Certification link** opens in a new tab; dummy hrefs are placeholder URLs on the records until real ones replace them
 
 ## Example dialogue
 
@@ -144,6 +174,24 @@ _Avoid_: cover picture (that belongs to Featured Projects)
 >
 > **Dev:** "Leave **Project highlight** modals title-only until real copy exists?"
 > **Domain expert:** "No. Use placeholder **Tech stack**, **Extended description**, **Project links**, and **Project media** too. Keep it data-driven so filling real Projects is an edit to the records, not the layout."
+>
+> **Dev:** "Should the issuer mark on a **Certification** be the **Certification link**?"
+> **Domain expert:** "No. The circular arrow next to **View Certification** opens the **Certification link**. The issuer mark is not a link."
+>
+> **Dev:** "Only the circular arrow is clickable, not the **View Certification** label?"
+> **Domain expert:** "No. The label and the arrow are the same control. Title and issuer mark stay inert."
+>
+> **Dev:** "Download the IBM and Databricks marks from the frame?"
+> **Domain expert:** "No. Use **Placeholder logos** for the **Issuer** until I drop in the real files."
+>
+> **Dev:** "Ship a shorter list until real credentials exist?"
+> **Domain expert:** "No. Ship the twelve dummy cards from the frame. Dummy title and placeholder **Certification links** are fine; keep it data-driven."
+>
+> **Dev:** "Reuse this card for Awards so both pages share one credential tile?"
+> **Domain expert:** "No. Certification-only. Awards gets its own layout when that frame exists."
+>
+> **Dev:** "Should the **Certification link** replace this page?"
+> **Domain expert:** "No. Open a new tab. Dummy hrefs can share a placeholder URL until real ones replace them."
 
 ## Flagged ambiguities
 
@@ -154,3 +202,9 @@ _Avoid_: cover picture (that belongs to Featured Projects)
 - Listing italic vs modal italic — resolved: **Tagline** on the listing, **Tech stack** in the modal. They are not the same field.
 - Listing body vs modal body — resolved: **Blurb** on the listing, **Extended description** in the modal. They are not the same field.
 - Highlight modal day-one copy — resolved: placeholder fields are allowed on **Project highlights** too; configuration lives on the **Project** record.
+- "Icon" on a Certification card was used for both the issuer mark and the circular arrow — resolved: the circular arrow opens the **Certification link**; the issuer mark does not.
+- **View Certification** vs the circular arrow as separate targets — resolved: they are one control that opens the **Certification link**. Title and issuer mark stay inert.
+- IBM / Databricks marks in Figma Desktop-6 — resolved: **Placeholder logos** for the **Issuer**, same rule as Company / Institution / Project highlight.
+- Dummy **Certification** count — resolved: twelve cards matching the frame, data-driven, same approach as **Project listings**.
+- Reuse with Awards — resolved: the **Certification** card is Certification-only. Awards gets its own tile when that frame exists. Shared pieces are **Section**, **ScrollReveal**, tokens, and the record-array pattern, not a generic credential component.
+- **Certification link** navigation — resolved: new tab (`target="_blank"`), not a same-tab replace.
