@@ -2,12 +2,13 @@
 
 ## Current Objective
 
-- Goal: feat-007 Certifications page from Figma Desktop-6
-- Current status: done; harness green
+- Goal: subtle hero entrance on first view
+- Current status: done in `components/sections/Hero.tsx`; harness green 2026-09-24
 - Branch: `main`
 
 ## Completed
 
+- [x] Hero section fills the space under the nav (`min-h: 100dvh` minus nav). Headline stays centered. About greeting starts below the fold on desktop (1440×900, ~133px of scroll) and mobile (390×844, ~206px of scroll).
 - [x] Domain: Certification vs Project; Certification link vs Project link; View Certification + circular arrow as one control; Issuer Placeholder logos; twelve dummy cards; Certification-only (not Awards)
 - [x] Dedicated `/certifications` route with a 3-column card grid
 - [x] Configurable records in `lib/certifications.ts` (`id`, `title`, `issuer`, `href`, optional `cta` / `logoSrc`)
@@ -16,7 +17,7 @@
 
 | Check | Command | Result | Notes |
 |---|---|---|---|
-| Install / lint / test / build | `./init.sh` | passed 2026-09-15 | 31 tests |
+| Install / lint / test / build | `./init.sh` | passed 2026-09-24 | 31 tests; hero spacing and entrance included |
 | Routes | `npm run build` | `/certifications` static; `[slug]` → `/awards` | |
 | Browser | `/certifications` | 12 cards; CTA `target="_blank"` to placeholder href; titles inert | 2026-09-15 |
 | Browser | `/`, `/projects`, `/awards` | homepage, projects, awards placeholder unchanged | 2026-09-15 |

@@ -2,8 +2,8 @@
 
 ## Current State
 
-**Last Updated:** 2026-09-15
-**Active Feature:** feat-007 Certifications page — done
+**Last Updated:** 2026-09-24
+**Active Feature:** hero entrance — done
 
 ## Status
 
@@ -17,6 +17,8 @@
   - Dedicated route; Awards stays on `app/[slug]`
 - [x] feat-006: `/projects` from Figma Desktop-5
 - [x] About section motion: greeting splits (avatar then copy), tabs on their own ScrollReveal, Work/Education groups stagger in with `Reveal` on tab change
+- [x] Hero fills the viewport under the nav so the About greeting starts below the fold (desktop and mobile)
+- [x] Hero entrance: lines rise in reading order on desktop; phrases fade in order on mobile. Skipped when reduced motion is on.
 
 ### What's In Progress
 
