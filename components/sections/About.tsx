@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Typewriter } from "@/components/animations/Typewriter";
 import { typewriterRoles } from "@/lib/about/content";
 import { EducationPanel, WorkExperiencePanel } from "@/components/about/groups";
+import { AboutMePanel } from "@/components/about/AboutMePanel";
 
 type Tab = "about" | "work" | "education";
 
@@ -94,6 +95,7 @@ export function About() {
       </ScrollReveal>
 
       <div className="mx-auto mt-10 max-w-[960px] md:mt-14">
+        {tab === "about" && <AboutMePanel />}
         {tab === "work" && <WorkExperiencePanel />}
         {tab === "education" && <EducationPanel />}
       </div>

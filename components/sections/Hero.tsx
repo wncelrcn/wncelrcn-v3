@@ -1,10 +1,49 @@
 "use client";
 
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import { Container } from "@/components/layout/Container";
 import { gsap, useGSAP } from "@/lib/animations/gsap";
 import { prefersReducedMotion } from "@/lib/animations/prefers-reduced-motion";
 import { Doodle } from "@/components/sections/hero/Doodle";
+import { Gears } from "@/components/sections/hero/Gears";
+import { HeartPencil } from "@/components/sections/hero/HeartPencil";
+import {
+  desktopLines,
+  doodleDelay,
+  doodleFrames,
+  HERO_STAGGER,
+  HERO_START,
+  heroTokens,
+  type HeroToken,
+} from "@/components/sections/hero/lockup";
+
+function HeroTokens({
+  tokens,
+  frames,
+}: {
+  tokens: readonly HeroToken[];
+  frames: (typeof doodleFrames)[keyof typeof doodleFrames];
+}) {
+  return tokens.map((token, i) => {
+    if (token === "heart" || token === "gears") {
+      const Art = token === "heart" ? HeartPencil : Gears;
+      return (
+        <Doodle key={token} {...frames[token]}>
+          <Art delay={doodleDelay(token)} />
+        </Doodle>
+      );
+    }
+
+    const prev = tokens[i - 1];
+    const word = (item: HeroToken | undefined) => item !== undefined && item !== "heart" && item !== "gears";
+    return (
+      <Fragment key={`${token}-${i}`}>
+        {word(prev) ? " " : null}
+        <span data-hero-word className="inline-block">{token}</span>
+      </Fragment>
+    );
+  });
+}
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -18,13 +57,12 @@ export function Hero() {
         .find((el) => getComputedStyle(el).display !== "none");
       if (!lockup) return;
 
-      const lines = gsap.utils.toArray<HTMLElement>("[data-hero-line]", lockup);
-      const rises = lines.length > 0 && lines.every((el) => getComputedStyle(el).display === "block");
-      gsap.from(lines.length ? lines : lockup, {
+      gsap.from(gsap.utils.toArray<HTMLElement>("[data-hero-word]", lockup), {
         opacity: 0,
-        ...(rises ? { y: 18 } : {}),
-        duration: 1.6,
-        stagger: 0.32,
+        yPercent: 40,
+        duration: 0.9,
+        delay: HERO_START,
+        stagger: HERO_STAGGER,
         ease: "power3.out",
         clearProps: "opacity,transform",
       });
@@ -36,64 +74,22 @@ export function Hero() {
     <section className="relative flex min-h-[calc(100dvh-4.5rem)] items-center md:min-h-[calc(100dvh-5.5rem)]">
       <Container className="w-full py-16 md:py-24">
         <div ref={ref}>
-          {/* Mobile: inline doodles that flow with a naturally-wrapping headline */}
           <h1
             data-hero
             className="text-[clamp(2.5rem,12vw,3.75rem)] leading-[1.15] font-medium tracking-[-0.01em] md:hidden"
           >
-            <span data-hero-line>
-              {"I turn"}
-              <Doodle
-                src="/figma/doodle-heart-pencil.svg"
-                width={2.2}
-                height={1.45}
-                rotate={20.26}
-                offsetY={-0.16}
-              />
-            </span>
-            <span data-hero-line>
-              {"great ideas into things"}
-              <Doodle
-                src="/figma/doodle-gears.svg"
-                width={1.9}
-                height={1.3}
-                rotate={9.55}
-                offsetY={0.05}
-              />
-            </span>
-            <span data-hero-line>{"people actually use."}</span>
+            <HeroTokens tokens={heroTokens} frames={doodleFrames.mobile} />
           </h1>
 
-          {/* Desktop (md+): exact Figma 3-line lockup with inline doodles */}
           <h1
             data-hero
             className="mx-auto hidden w-fit text-display font-medium tracking-[-0.01em] md:block"
           >
-            <span data-hero-line className="block whitespace-nowrap">
-              {"I turn"}
-              <Doodle
-                src="/figma/doodle-heart-pencil.svg"
-                width={2.5}
-                height={1.6}
-                rotate={20.26}
-                offsetY={-0.28}
-              />
-              {"great ideas"}
-            </span>
-            <span data-hero-line className="block whitespace-nowrap">
-              {"into things"}
-              <Doodle
-                src="/figma/doodle-gears.svg"
-                width={2}
-                height={1.38}
-                rotate={9.55}
-                offsetY={0.05}
-              />
-              {"people"}
-            </span>
-            <span data-hero-line className="block whitespace-nowrap">
-              actually use.
-            </span>
+            {desktopLines.map((line) => (
+              <span key={line[0]} className="block whitespace-nowrap">
+                <HeroTokens tokens={line} frames={doodleFrames.desktop} />
+              </span>
+            ))}
           </h1>
         </div>
       </Container>

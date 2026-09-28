@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { education, workExperience } from "@/lib/about/content";
+import { aboutMe, companyById, education, workExperience, type AboutRun } from "@/lib/about/content";
+
+function paragraphText(runs: AboutRun[]) {
+  return runs
+    .map((run) => (run.kind === "company" ? companyById(run.id).name : run.text))
+    .join("");
+}
 
 describe("Work Experience", () => {
   it("lists companies in frame order", () => {
@@ -22,8 +28,9 @@ describe("Work Experience", () => {
     ]);
   });
 
-  it("gives every company at least one role with a meta line", () => {
+  it("gives every company a logo and at least one role with a meta line", () => {
     for (const company of workExperience) {
+      expect(company.logo.startsWith("/figma/")).toBe(true);
       expect(company.roles.length).toBeGreaterThan(0);
       for (const role of company.roles) {
         expect(role.meta.length).toBeGreaterThan(0);
@@ -45,8 +52,9 @@ describe("Education", () => {
     ]);
   });
 
-  it("lists one program with highlight bullets", () => {
+  it("lists one program with a logo and highlight bullets", () => {
     const mapua = education[0];
+    expect(mapua.logo).toBe("/figma/mmcl-logo.png");
     expect(mapua.programs).toHaveLength(1);
     expect(mapua.programs[0].title.length).toBeGreaterThan(0);
     expect(mapua.programs[0].details?.length).toBeGreaterThan(0);
@@ -57,6 +65,35 @@ describe("Education", () => {
     expect(blob).not.toMatch(
       /ACM|JPCS|Association for Computing Machinery|Junior Philippine Computer Society/,
     );
+  });
+});
+
+describe("About Me", () => {
+  it("mentions GoTyme Bank and Neko Labs in prose order", () => {
+    const mentions = aboutMe.flat().flatMap((run) => (run.kind === "company" ? [run.id] : []));
+    expect(mentions).toEqual(["gotyme-bank", "neko-labs"]);
+  });
+
+  it("opens GoTyme Bank’s site from its Company record and leaves Neko Labs unlinked", () => {
+    expect(companyById("gotyme-bank").href).toBe("https://www.gotyme.com.ph/");
+    expect(companyById("neko-labs").href).toBeUndefined();
+  });
+
+  it("resolves every mention to a Company", () => {
+    for (const runs of aboutMe) {
+      for (const run of runs) {
+        if (run.kind === "company") expect(companyById(run.id).name.length).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it("keeps the four paragraphs", () => {
+    expect(aboutMe.map(paragraphText)).toEqual([
+      "I’m an engineer who thinks like a designer and builds with intention.",
+      "I care deeply about craft, clarity, and how things feel to use, believing that the best engineering doesn’t just work on paper, it gives people their time back.",
+      "Right now, I’m an AI Engineer at GoTyme Bank, where I build custom AI systems for the business.",
+      "Outside of that, I’m the Co-Founder of Neko Labs, where we build and ship our own products, finding real problems, shipping fast, and making it work.",
+    ]);
   });
 });
 

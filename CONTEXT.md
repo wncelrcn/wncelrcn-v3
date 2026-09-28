@@ -9,7 +9,7 @@ The homepage block with avatar, greeting, role line, and three tabs.
 _Avoid_: About page (that implies a separate route)
 
 **About Me**:
-The first tab in the About section, and the default selected tab. Currently empty until a Figma frame exists; the tab still ships so the body can be filled later.
+The first tab in the About section, and the default selected tab. Prose with serif-italic emphasis and inline Company mentions.
 _Avoid_: bio, bio tab
 
 **Work Experience**:
@@ -21,15 +21,19 @@ The third tab: school-grouped programs matching Figma Desktop - 4 (`4:150`). For
 _Avoid_: academics, school tab, student orgs (ACM, JPCS)
 
 **Company**:
-An employer grouping on Work Experience: placeholder logo, name, then one or more roles.
+An employer grouping on Work Experience: logo file, name, then one or more roles. May include a site URL.
 _Avoid_: job, timeline row
+
+**Company mention**:
+An inline logo and name inside About Me prose. When that Company has a site URL, the mention opens it in a new tab. The Work Experience name is not this link.
+_Avoid_: company link, logo link
 
 **Role**:
 A job under a Company. Title in sans, then a serif-italic meta line (`period • location • type`).
 _Avoid_: job title, position
 
 **Institution**:
-A school grouping on Education: placeholder logo, name, then one or more programs.
+A school grouping on Education: logo file, name, then one or more programs.
 _Avoid_: school, university (as a layout term)
 
 **Program**:
@@ -37,8 +41,8 @@ A degree or course of study under an Institution, with optional italic highlight
 _Avoid_: major, course
 
 **Placeholder logo**:
-The Lucide stand-in until the real mark is dropped in. 50×50 `Building2` for a Company, 50×50 `GraduationCap` for an Institution, a small glyph in the name pill for a Project highlight, and the issuer mark on a Certification card.
-_Avoid_: brand icon, company icon (until the real file exists)
+The Lucide stand-in until the real mark is dropped in. A small glyph in the name pill for a Project highlight, and the issuer mark on a Certification card. Company and Institution marks are real logo files.
+_Avoid_: brand icon, company icon
 
 **Project**:
 A software case study. Every Project appears on the Projects page.
@@ -111,12 +115,13 @@ _Avoid_: provider, company (that is Work Experience)
 ## Relationships
 
 - The **About section** contains exactly three tabs: **About Me**, **Work Experience**, **Education**
-- **About Me** has no designed body yet; it is still the default tab
+- **About Me** is the default tab and has a body of prose, emphasis, and **Company mentions**
 - Visitors land on **About Me**, then can switch to **Work Experience** or **Education**
 - **Work Experience** and **Education** share a grouped layout (logo + name, then entries) but are distinct tabs
 - **Education** currently contains one Institution; ACM and JPCS are not Education entries
 - A **Company** has one or more **Roles**; an **Institution** has one or more **Programs**
-- Each **Company** and **Institution** uses a **Placeholder logo** until the real mark is provided
+- Each **Company** and **Institution** uses a logo file. A **Company** may also have a site URL
+- A **Company mention** reads that **Company** record. A mention with a site URL opens it in a new tab. The Work Experience name is not that link
 - Every **Project** appears on the **Projects page**
 - Six **Projects** are **Project highlights**; the rest are **Project listings**
 - A **Project** is either a **Project highlight** or a **Project listing**, not both
@@ -142,8 +147,8 @@ _Avoid_: provider, company (that is Work Experience)
 
 ## Example dialogue
 
-> **Dev:** "Should **About Me** show a placeholder bio until the Figma frame is ready?"
-> **Domain expert:** "No. Keep **About Me** blank. Copy **Work Experience** and **Education** from the frames; don't invent **About Me** copy."
+> **Dev:** "Should **About Me** stay blank until someone edits the component?"
+> **Domain expert:** "No. The body is records: prose, emphasis, and **Company mentions**. Filling it is an edit to those records."
 >
 > **Dev:** "The data file also has ACM and JPCS under Education. Keep them?"
 > **Domain expert:** "No. Follow the frame. Drop ACM and JPCS from **Education** for now."
@@ -151,8 +156,11 @@ _Avoid_: provider, company (that is Work Experience)
 > **Dev:** "Default tab is **Work Experience** so nobody lands on empty **About Me**?"
 > **Domain expert:** "No. Default to **About Me**. I'll fill that tab; implement it in code first."
 >
-> **Dev:** "Should we download the Figma org marks now?"
-> **Domain expert:** "No. Use **Placeholder logos** until I drop in the real files."
+> **Dev:** "Keep Lucide **Placeholder logos** on Work Experience now that the files are in?"
+> **Domain expert:** "No. **Company** and **Institution** use their logo files. **Placeholder logos** stay on **Project highlights** and **Certification** issuers."
+>
+> **Dev:** "Should the Work Experience name open the **Company** site too?"
+> **Domain expert:** "No. Only the **Company mention** in **About Me** opens it. GoTyme Bank has a site. Neko Labs does not, so that mention is not a link."
 >
 > **Dev:** "Homepage **Featured Projects** has five slots and the **Projects page** has six **Project highlights**. Unify the count?"
 > **Domain expert:** "No. Keep five on the homepage and six highlights on the **Projects page**. The homepage is a subset, not a mirror."
@@ -196,6 +204,9 @@ _Avoid_: provider, company (that is Work Experience)
 ## Flagged ambiguities
 
 - "About" was used for both the homepage section and the first tab — resolved: **About section** vs **About Me**.
+- **About Me** empty vs filled — resolved: the body ships as records (prose, emphasis, **Company mentions**), not as copy buried in the timeline.
+- **Company** site vs the Work Experience name — resolved: the site URL lives on the **Company**; only the **About Me** mention opens it.
+- Lucide vs logo files — resolved: **Company** and **Institution** marks are real files. **Placeholder logo** remains for **Project highlights** and **Certification** issuers.
 - "Education" was used to include student orgs (ACM, JPCS) — resolved: **Education** is the degree/program frame only; those orgs are out until designed elsewhere.
 - "Featured" was used for both the homepage five-slot section and the six named tiles on `/projects` — resolved: **Featured Projects** is homepage-only; the six tiles are **Project highlights**.
 - Project `href` was a single destination — resolved: a **Project** opens a **Project modal**; outbound URLs are **Project links** of optional kinds.

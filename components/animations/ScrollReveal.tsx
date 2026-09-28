@@ -2,6 +2,7 @@
 
 import { useRef, type ReactNode } from "react";
 import { gsap, useGSAP } from "@/lib/animations/gsap";
+import { observeOnce } from "@/lib/animations/when-visible";
 import { prefersReducedMotion } from "@/lib/animations/prefers-reduced-motion";
 
 interface ScrollRevealProps {
@@ -32,20 +33,9 @@ export function ScrollReveal({ children, className, y = 40, delay = 0 }: ScrollR
 
       gsap.set(el, { opacity: 0, y });
 
-      const observer = new IntersectionObserver(
-        (entries, obs) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              gsap.to(el, { opacity: 1, y: 0, duration: 0.8, delay, ease: "power3.out" });
-              obs.disconnect();
-            }
-          }
-        },
-        { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
-      );
-
-      observer.observe(el);
-      return () => observer.disconnect();
+      return observeOnce(el, () => {
+        gsap.to(el, { opacity: 1, y: 0, duration: 0.8, delay, ease: "power3.out" });
+      });
     },
     { scope: ref },
   );

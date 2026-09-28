@@ -1,37 +1,38 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { Building2, GraduationCap } from "lucide-react";
+import Image from "next/image";
 import { Reveal } from "@/components/animations/Reveal";
+import { cn } from "@/lib/utils";
 import { education, workExperience, type Company, type Institution } from "@/lib/about/content";
 
-type PlaceholderLogoKind = "company" | "institution";
-
-function PlaceholderLogo({ kind }: { kind: PlaceholderLogoKind }) {
-  const Icon = kind === "institution" ? GraduationCap : Building2;
+function GroupLogo({ src, rounded }: { src: string; rounded?: boolean }) {
   return (
-    <div
-      className="flex size-[50px] shrink-0 items-center justify-center rounded-[10px] bg-accent-surface text-muted-ink"
-      aria-hidden
-    >
-      <Icon className="size-6" strokeWidth={1.5} />
-    </div>
+    <Image
+      src={src}
+      alt=""
+      width={50}
+      height={50}
+      className={cn("size-[50px] shrink-0 object-cover", rounded && "rounded-[10px]")}
+    />
   );
 }
 
 function GroupShell({
-  kind,
   name,
+  logo,
+  rounded,
   children,
 }: {
-  kind: PlaceholderLogoKind;
   name: string;
+  logo: string;
+  rounded?: boolean;
   children: ReactNode;
 }) {
   return (
     <div className="grid grid-cols-[50px_minmax(0,1fr)] gap-x-6">
       <div className="relative">
-        <PlaceholderLogo kind={kind} />
+        <GroupLogo src={logo} rounded={rounded} />
         <span
           aria-hidden
           className="absolute top-[50px] left-1/2 h-[32px] w-7 -translate-x-px rounded-bl-[10px] border-b border-l border-ink"
@@ -47,7 +48,7 @@ function GroupShell({
 
 export function CompanyGroup({ company }: { company: Company }) {
   return (
-    <GroupShell kind="company" name={company.name}>
+    <GroupShell name={company.name} logo={company.logo} rounded={company.rounded}>
       {company.roles.map((role) => (
         <div key={role.id}>
           <p className="font-medium text-ink">{role.title}</p>
@@ -60,7 +61,7 @@ export function CompanyGroup({ company }: { company: Company }) {
 
 export function InstitutionGroup({ institution }: { institution: Institution }) {
   return (
-    <GroupShell kind="institution" name={institution.name}>
+    <GroupShell name={institution.name} logo={institution.logo}>
       {institution.programs.map((program) => (
         <div key={program.id}>
           <p className="font-medium text-ink">{program.title}</p>
@@ -79,7 +80,7 @@ export function InstitutionGroup({ institution }: { institution: Institution }) 
 
 export function WorkExperiencePanel() {
   return (
-    <div className="flex flex-col gap-10 text-lead">
+    <div className="flex flex-col gap-10 text-entry">
       {workExperience.map((company, index) => (
         <Reveal key={company.id} delay={index * 0.1} y={16}>
           <CompanyGroup company={company} />
@@ -91,7 +92,7 @@ export function WorkExperiencePanel() {
 
 export function EducationPanel() {
   return (
-    <div className="flex flex-col gap-10 text-lead">
+    <div className="flex flex-col gap-10 text-entry">
       {education.map((institution, index) => (
         <Reveal key={institution.id} delay={index * 0.1} y={16}>
           <InstitutionGroup institution={institution} />
