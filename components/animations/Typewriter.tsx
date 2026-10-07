@@ -34,13 +34,11 @@ export function Typewriter({ words }: { words: string[] }) {
 
     const current = words[wordIndex % words.length];
 
-    // Finished typing the word → hold, then start deleting.
     if (!deleting && text === current) {
       const t = setTimeout(() => setDeleting(true), HOLD);
       return () => clearTimeout(t);
     }
 
-    // Finished deleting → pause briefly, then advance to the next word.
     if (deleting && text === "") {
       const t = setTimeout(() => {
         setDeleting(false);

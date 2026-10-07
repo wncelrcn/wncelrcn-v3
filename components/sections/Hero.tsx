@@ -17,6 +17,10 @@ import {
   type HeroToken,
 } from "@/components/sections/hero/lockup";
 
+function isWord(token: HeroToken | undefined) {
+  return token !== undefined && token !== "heart" && token !== "gears";
+}
+
 function HeroTokens({
   tokens,
   frames,
@@ -34,11 +38,9 @@ function HeroTokens({
       );
     }
 
-    const prev = tokens[i - 1];
-    const word = (item: HeroToken | undefined) => item !== undefined && item !== "heart" && item !== "gears";
     return (
       <Fragment key={`${token}-${i}`}>
-        {word(prev) ? " " : null}
+        {isWord(tokens[i - 1]) ? " " : null}
         <span data-hero-word className="inline-block">{token}</span>
       </Fragment>
     );

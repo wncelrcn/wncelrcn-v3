@@ -1,12 +1,8 @@
 import type { ReactNode } from "react";
 
 /**
- * A decorative hand-drawn doodle laid into the hero headline, matching the
- * Figma composition. Renders a fixed-width inline spacer (the gap between the
- * words) with the doodle absolutely centered on top — so the gap is
- * font-independent (identical in SF Pro, Inter, or any fallback). All sizes are
- * in `em` so the whole composition scales as one unit with the headline.
- * The art (children) must be sized at `height: 1em`.
+ * Fixed-width spacer for a hero doodle. Sizes are in em so the gap stays
+ * font-independent and scales with the headline. Children render at 1em.
  */
 export function Doodle({
   children,

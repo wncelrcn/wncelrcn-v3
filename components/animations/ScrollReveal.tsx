@@ -12,12 +12,7 @@ interface ScrollRevealProps {
   delay?: number;
 }
 
-/**
- * Fades and rises its children in when scrolled into view.
- * Uses an IntersectionObserver (fires immediately for elements already in view,
- * so content can never get stuck hidden) and GSAP for the motion.
- * Skips motion entirely when reduced-motion is requested.
- */
+/** Fades and rises its children in when scrolled into view. Skips motion when reduced-motion is requested. */
 export function ScrollReveal({ children, className, y = 40, delay = 0 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 

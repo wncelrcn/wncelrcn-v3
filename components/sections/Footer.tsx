@@ -12,7 +12,6 @@ export function Footer() {
         </h2>
 
         <div className="mt-6 flex flex-col justify-between gap-8 md:mt-[22px] md:flex-row">
-          {/* Left: socials */}
           <ul className="flex flex-col gap-5">
             {socials.map((social) => (
               <li key={social.label}>
@@ -36,7 +35,6 @@ export function Footer() {
             ))}
           </ul>
 
-          {/* Right: contact */}
           <div className="md:text-right">
             <p className="max-w-[380px] text-[clamp(1rem,1.5vw,20px)] leading-snug font-medium text-pretty text-muted-ink md:ml-auto">
               For work, collabs, &amp; everything else, reach me at

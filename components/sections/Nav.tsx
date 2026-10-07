@@ -24,7 +24,6 @@ export function Nav() {
             Wince Larcen
           </Link>
 
-          {/* Desktop links */}
           <ul className="hidden items-center gap-4 text-base md:flex">
             {navLinks.map((link) => (
               <li key={link.label}>
@@ -41,7 +40,6 @@ export function Nav() {
             ))}
           </ul>
 
-          {/* Mobile toggle */}
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
@@ -53,7 +51,6 @@ export function Nav() {
           </button>
         </nav>
 
-        {/* Mobile menu — floats over the page below the pill */}
         {open && (
           <div className="absolute inset-x-6 top-full z-50 mt-2 animate-menu-in rounded-3xl bg-accent-surface p-2 shadow-pill motion-reduce:animate-none md:hidden">
             <ul className="flex flex-col">
