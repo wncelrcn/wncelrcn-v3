@@ -2,15 +2,15 @@
 
 ## Current Objective
 
-- Goal: subtle hero entrance on first view
-- Current status: done in `components/sections/Hero.tsx`; harness green 2026-09-24
+- Goal: real Certification records, or the Awards page
+- Current status: About Me body, Company and Institution marks, and hero doodles are on `main` (`62421d8`). `./init.sh` passed 2026-09-28 (37 tests).
 - Branch: `main`
 
 ## Completed
 
 - [x] 2026-09-28: Review fixes. Company `href` replaces `gotymeBankUrl`. About Me body is `aboutMe` runs. Group logos use `alt=""`. `observeOnce` is the shared scroll seam. Hero tokens live in `components/sections/hero/lockup.ts`. `HeartPencil.tsx` and `Gears.tsx` were not modified.
 - [x] 2026-09-28: Hero doodles animate on a loop. The SVGs are inlined as `components/sections/hero/HeartPencil.tsx` (pencil tip follows the heart strokes as they draw, then rests in the Figma pose) and `Gears.tsx` (four gears spin on their hubs via `svgOrigin`). `loop.ts` gates both on `prefers-reduced-motion` and runs only the visible lockup. `Doodle` now takes art as children. `./init.sh` passed; checked in the browser at 1280px.
-- [x] 2026-09-28: Hero entrance reveals word by word (`Words` in `Hero.tsx`, 0.13s stagger). Doodles count as words in the stagger. The pencil starts writing an empty heart as its slot rises (`HeartPencil delay`). The gears sit still and then spin up to speed after their slot lands (`Gears delay`, a timeScale ramp from 0 to 1). The heart finishes about 1.7s after the last word, as the closing beat. `./init.sh` passed (32 tests).
+- [x] 2026-09-28: Hero entrance reveals word by word. Doodles count as words in the stagger. The reading order and delays live in `components/sections/hero/lockup.ts`. The pencil starts writing an empty heart as its slot rises (`HeartPencil delay`). The gears sit still and then spin up to speed after their slot lands (`Gears delay`, a timeScale ramp from 0 to 1). The heart finishes about 1.7s after the last word, as the closing beat.
 
 - [x] 2026-09-28: About Me tab body from Figma 37:2 in `components/about/AboutMePanel.tsx`. GoTyme Bank links to https://www.gotyme.com.ph/ in a new tab with an up-right arrow; Neko Labs is hover-only until it has a site. Checked in browser at 1280px and 390px.
 
@@ -23,11 +23,12 @@
 
 | Check | Command | Result | Notes |
 |---|---|---|---|
-| Install / lint / test / build | `./init.sh` | passed 2026-09-24 | 31 tests; hero spacing and entrance included |
+| Install / lint / test / build | `./init.sh` | passed 2026-09-28 | 37 tests; About Me records, company marks, hero lockup |
 | Routes | `npm run build` | `/certifications` static; `[slug]` → `/awards` | |
 | Browser | `/certifications` | 12 cards; CTA `target="_blank"` to placeholder href; titles inert | 2026-09-15 |
 | Browser | `/`, `/projects`, `/awards` | homepage, projects, awards placeholder unchanged | 2026-09-15 |
 | Browser | `/certifications` 390px | single-column cards | 2026-09-15 |
+| Portfolio UI skill | `verify.sh launch`, doctor, click Projects, cleanup | passed 2026-10-07 | Isolated server on 4173 with `.next-verify`. Evidence remains in `artifacts/navigation/` after cleanup. |
 
 ## Startup for the next session
 
@@ -35,6 +36,7 @@
 2. Read `feature_list.json` (feat-001–007 done) and this file
 3. Run `./init.sh` before editing
 4. Fill real Certification records or start Awards
+5. UI proof uses `.cursor/skills/verify-portfolio/` (`/maintain-verification-skill` when the map drifts)
 
 ## Key files
 
@@ -46,6 +48,10 @@
 | Project records | `lib/projects.ts` |
 | Site routes | `lib/site-routes.ts` |
 | About content | `lib/about/content.ts` |
+| About Me panel | `components/about/AboutMePanel.tsx` |
+| Hero lockup | `components/sections/hero/lockup.ts` |
+| Scroll observer | `lib/animations/when-visible.ts` |
+| UI verification | `.cursor/skills/verify-portfolio/` |
 
 ## Domain (from CONTEXT.md)
 

@@ -15,6 +15,7 @@
 
 # next.js
 /.next/
+/.next-verify*/
 /out/
 
 # production
@@ -39,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# verification runtime and local proof artifacts
+.cursor/skills/verify-portfolio/.run/
+.cursor/skills/verify-portfolio/artifacts/
