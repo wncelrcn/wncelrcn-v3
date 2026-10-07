@@ -21,6 +21,8 @@ export interface Company {
   logo: string;
   /** Crop the mark to a rounded square. Each surface picks its own radius. */
   rounded?: boolean;
+  /** Show the whole file. A wordmark on a square canvas gets clipped by the default cover fit. */
+  contain?: boolean;
   /** Site opened from an About Me mention. The Work Experience name is not a link. */
   href?: string;
   roles: Role[];
@@ -43,16 +45,26 @@ export interface Institution {
 
 export const workExperience: Company[] = [
   {
+    id: "gotymex",
+    name: "GoTymeX",
+    logo: "/figma/tymex-logo.png",
+    rounded: true,
+    contain: true,
+    href: "https://www.gotyme.com/gotyme-x",
+    roles: [
+      {
+        id: "gotymex-ai-engineer",
+        title: "AI Engineer",
+        meta: "Oct 2026 - Present • Ho Chi Minh City, Vietnam • Full-time",
+      },
+    ],
+  },
+  {
     id: "gotyme-bank",
     name: "GoTyme Bank",
     logo: "/figma/gotyme-logo.png",
     href: "https://www.gotyme.com.ph/",
     roles: [
-      {
-        id: "gotyme-bank-ai-engineer",
-        title: "AI Engineer",
-        meta: "Oct 2026 - Present • Quezon City, Philippines • Full-time",
-      },
       {
         id: "gotyme-bank-ai-engineer-rookie",
         title: "AI Engineer Rookie",
@@ -123,7 +135,7 @@ export const education: Institution[] = [
         id: "mapua-mcl-bscs-ml",
         title: "BS in Computer Science with Specialization in Machine Learning",
         details: [
-          "Expected to graduate as Summa Cum Laude (1.155 Running GWA)",
+          "Graduating as Summa Cum Laude (1.155 GWA)",
           "Consistently recognized as President’s and Dean’s Lister throughout my academic tenure",
         ],
       },
@@ -131,24 +143,28 @@ export const education: Institution[] = [
   },
 ];
 
-/** A slice of an About Me paragraph: plain text, serif-italic emphasis, or a Company mention. */
+/** A slice of an About Me paragraph: plain text, serif-italic emphasis, the thinking spark, or a Company mention. */
 export type AboutRun =
   | { kind: "text"; text: string }
-  | { kind: "em"; text: string }
+  | { kind: "em"; text: string; flow?: true; wave?: true }
+  | { kind: "spark" }
+  | { kind: "build" }
   | { kind: "company"; id: string };
 
 /** About Me body. Company mentions resolve through `companyById`. */
 export const aboutMe: AboutRun[][] = [
   [
     { kind: "text", text: "I\u2019m an engineer who " },
-    { kind: "em", text: "thinks like a designer" },
+    { kind: "spark" },
+    { kind: "em", text: "thinks like a designer", flow: true },
     { kind: "text", text: " and " },
-    { kind: "em", text: "builds with intention" },
+    { kind: "build" },
+    { kind: "em", text: "builds with intention", flow: true },
     { kind: "text", text: "." },
   ],
   [
     { kind: "text", text: "I care deeply about " },
-    { kind: "em", text: "craft, clarity, and how things feel to use" },
+    { kind: "em", text: "craft, clarity, and how things feel to use", wave: true },
     {
       kind: "text",
       text: ", believing that the best engineering doesn\u2019t just work on paper, it gives people their time back.",
@@ -158,7 +174,7 @@ export const aboutMe: AboutRun[][] = [
     { kind: "text", text: "Right now, I\u2019m an " },
     { kind: "em", text: "AI Engineer" },
     { kind: "text", text: " at " },
-    { kind: "company", id: "gotyme-bank" },
+    { kind: "company", id: "gotymex" },
     { kind: "text", text: ", where I build custom AI systems for the business." },
   ],
   [

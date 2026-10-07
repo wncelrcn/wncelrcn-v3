@@ -6,14 +6,26 @@ import { Reveal } from "@/components/animations/Reveal";
 import { cn } from "@/lib/utils";
 import { education, workExperience, type Company, type Institution } from "@/lib/about/content";
 
-function GroupLogo({ src, rounded }: { src: string; rounded?: boolean }) {
+function GroupLogo({
+  src,
+  rounded,
+  contain,
+}: {
+  src: string;
+  rounded?: boolean;
+  contain?: boolean;
+}) {
   return (
     <Image
       src={src}
       alt=""
       width={50}
       height={50}
-      className={cn("size-[50px] shrink-0 object-cover", rounded && "rounded-[10px]")}
+      className={cn(
+        "size-[50px] shrink-0",
+        contain ? "object-contain" : "object-cover",
+        rounded && "rounded-[10px]",
+      )}
     />
   );
 }
@@ -22,17 +34,19 @@ function GroupShell({
   name,
   logo,
   rounded,
+  contain,
   children,
 }: {
   name: string;
   logo: string;
   rounded?: boolean;
+  contain?: boolean;
   children: ReactNode;
 }) {
   return (
     <div className="grid grid-cols-[50px_minmax(0,1fr)] gap-x-6">
       <div className="relative">
-        <GroupLogo src={logo} rounded={rounded} />
+        <GroupLogo src={logo} rounded={rounded} contain={contain} />
         <span
           aria-hidden
           className="absolute top-[50px] left-1/2 h-[32px] w-7 -translate-x-px rounded-bl-[10px] border-b border-l border-ink"
@@ -48,7 +62,12 @@ function GroupShell({
 
 export function CompanyGroup({ company }: { company: Company }) {
   return (
-    <GroupShell name={company.name} logo={company.logo} rounded={company.rounded}>
+    <GroupShell
+      name={company.name}
+      logo={company.logo}
+      rounded={company.rounded}
+      contain={company.contain}
+    >
       {company.roles.map((role) => (
         <div key={role.id}>
           <p className="font-medium text-ink">{role.title}</p>

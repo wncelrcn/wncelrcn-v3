@@ -3,11 +3,23 @@
 ## Current State
 
 **Last Updated:** 2026-10-07
-**Active Feature:** About Me panel — done
+**Active Feature:** About Me build mark — done
 
 ## Status
 
 ### What's Done
+
+- [x] 2026-10-07: “thinks like a designer” and “builds with intention” use a continuous blue sweep (`text-stream`, 2.8s). Spark blue, light blue, and deep blue repeat with no ink gap. Reduced motion keeps the phrases in ink.
+
+- [x] 2026-10-07: “craft, clarity, and how things feel to use” carries a continuous rainbow (`text-rgb`, 4.2s). The gradient repeats red through violet with no ink gap, so the sweep does not return to black. Reduced motion keeps the phrase in ink.
+
+- [x] 2026-10-07: The thinking spark is the eight traced frames of `public/figma/claude-thinking.gif` again, stepped with the CSS `mark-spark` opacity cycle (200ms each). The GSAP hub spin was reverted.
+
+- [x] 2026-10-07: The build mark between “and” and “builds” is the GIF’s blob, eyes, hammer, and anvil, in the spark blue. The hammer swings on a GSAP timeline (`loopWhenVisible`, same gate as the hero gears) instead of stepping opacity between silhouettes. Checked at 1280px on the About Me line.
+
+- [x] 2026-10-07: Education bullet reads “Graduating as Summa Cum Laude (1.155 GWA)”. Seen on the Education tab.
+
+- [x] 2026-10-07: Current AI Engineer role is its own GoTymeX company (`/figma/tymex-logo.png`, rounded, Ho Chi Minh City). GoTyme Bank keeps AI Engineer Rookie. About Me mentions GoTymeX and opens https://www.gotyme.com/gotyme-x. Content tests passed (13). Browser at 1280px showed the rounded mark and the href. `./init.sh` passed 2026-10-07 (39 tests). Verification map corrected for the desktop-only nav underline and the project-dialog tech line.
 
 - [x] 2026-09-28 review fixes: Company site URL and logo live on the Company record; About Me prose is records (`aboutMe`) that mention those Companies; Work/Education logos are decorative (`alt=""`); scroll observer shared via `observeOnce` (ADR-0001); hero word order and doodle delays live in `lockup.ts`. HeartPencil and Gears timelines were not edited. `./init.sh` passed (37 tests).
 

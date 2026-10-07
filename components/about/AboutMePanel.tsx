@@ -7,6 +7,8 @@ import { gsap, useGSAP } from "@/lib/animations/gsap";
 import { observeOnce } from "@/lib/animations/when-visible";
 import { prefersReducedMotion } from "@/lib/animations/prefers-reduced-motion";
 import { cn } from "@/lib/utils";
+import { BuildMark } from "@/components/about/BuildMark";
+import { ThinkingSpark } from "@/components/about/ThinkingSpark";
 import {
   aboutMe,
   companyById,
@@ -14,8 +16,26 @@ import {
   type Company,
 } from "@/lib/about/content";
 
-function Em({ children }: { children: ReactNode }) {
-  return <em className="font-serif italic">{children}</em>;
+function Em({
+  children,
+  flow,
+  wave,
+}: {
+  children: ReactNode;
+  flow?: true;
+  wave?: true;
+}) {
+  return (
+    <em
+      className={cn(
+        "font-serif italic",
+        flow && "animate-stream text-stream motion-reduce:animate-none",
+        wave && "animate-rgb text-rgb motion-reduce:animate-none",
+      )}
+    >
+      {children}
+    </em>
+  );
 }
 
 /** Inline logo + underlined name. With a Company site it opens in a new tab; without, hover only. */
@@ -28,7 +48,8 @@ function CompanyMention({ company }: { company: Company }) {
       height={50}
       data-about-logo
       className={cn(
-        "mr-[0.3em] ml-[0.1em] inline-block size-[1.25em] align-[-0.3em] object-cover",
+        "mr-[0.3em] ml-[0.1em] inline-block size-[1.25em] align-[-0.3em]",
+        company.contain ? "object-contain" : "object-cover",
         company.rounded && "rounded-[0.2em]",
       )}
     />
@@ -73,9 +94,26 @@ function CompanyMention({ company }: { company: Company }) {
 
 function Runs({ runs }: { runs: AboutRun[] }) {
   return runs.map((run, index) => {
-    if (run.kind === "text") return <Fragment key={index}>{run.text}</Fragment>;
-    if (run.kind === "em") return <Em key={index}>{run.text}</Em>;
-    return <CompanyMention key={run.id} company={companyById(run.id)} />;
+    switch (run.kind) {
+      case "text":
+        return <Fragment key={index}>{run.text}</Fragment>;
+      case "em":
+        return (
+          <Em key={index} flow={run.flow} wave={run.wave}>
+            {run.text}
+          </Em>
+        );
+      case "spark":
+        return <ThinkingSpark key={index} />;
+      case "build":
+        return <BuildMark key={index} />;
+      case "company":
+        return <CompanyMention key={run.id} company={companyById(run.id)} />;
+      default: {
+        const exhaustive: never = run;
+        return exhaustive;
+      }
+    }
   });
 }
 

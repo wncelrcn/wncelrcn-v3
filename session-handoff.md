@@ -3,10 +3,16 @@
 ## Current Objective
 
 - Goal: real Certification records, or the Awards page
-- Current status: About Me body, Company and Institution marks, and hero doodles are on `main` (`62421d8`). `./init.sh` passed 2026-09-28 (37 tests).
+- Current status: GoTymeX content edit, plus the About Me spark, build mark, and a rainbow wave on the craft phrase. `./init.sh` passed 2026-10-07 (39 tests). Verification map drift for the nav underline and the project dialog was corrected in the same commit.
 - Branch: `main`
 
 ## Completed
+
+- [x] 2026-10-07: About Me thinking spark restored to the CSS frame cycle of the eight `claude-thinking.gif` traces. GSAP spin removed.
+
+- [x] 2026-10-07: About Me build mark redrawn from `public/figma/claude-build.gif` (blob, two eyes, hammer, anvil) in spark blue. Hammer swings with GSAP via `loopWhenVisible`. Browser check at 1280px.
+
+- [x] 2026-10-07: Split AI Engineer onto GoTymeX. Logo `/figma/tymex-logo.png` with the shared 10px rounded crop. About Me href is https://www.gotyme.com/gotyme-x. Checked in the browser at 1280px.
 
 - [x] 2026-09-28: Review fixes. Company `href` replaces `gotymeBankUrl`. About Me body is `aboutMe` runs. Group logos use `alt=""`. `observeOnce` is the shared scroll seam. Hero tokens live in `components/sections/hero/lockup.ts`. `HeartPencil.tsx` and `Gears.tsx` were not modified.
 - [x] 2026-09-28: Hero doodles animate on a loop. The SVGs are inlined as `components/sections/hero/HeartPencil.tsx` (pencil tip follows the heart strokes as they draw, then rests in the Figma pose) and `Gears.tsx` (four gears spin on their hubs via `svgOrigin`). `loop.ts` gates both on `prefers-reduced-motion` and runs only the visible lockup. `Doodle` now takes art as children. `./init.sh` passed; checked in the browser at 1280px.
@@ -23,7 +29,7 @@
 
 | Check | Command | Result | Notes |
 |---|---|---|---|
-| Install / lint / test / build | `./init.sh` | passed 2026-09-28 | 37 tests; About Me records, company marks, hero lockup |
+| Install / lint / test / build | `./init.sh` | passed 2026-10-07 | 39 tests; GoTymeX split, About Me marks |
 | Routes | `npm run build` | `/certifications` static; `[slug]` → `/awards` | |
 | Browser | `/certifications` | 12 cards; CTA `target="_blank"` to placeholder href; titles inert | 2026-09-15 |
 | Browser | `/`, `/projects`, `/awards` | homepage, projects, awards placeholder unchanged | 2026-09-15 |

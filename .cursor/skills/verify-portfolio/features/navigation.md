@@ -37,7 +37,7 @@ Preconditions:
 - Below 768px the inline links are not shown. The control is the button `Open menu`, then `Close menu` while the panel is open.
 - At 768px and above the menu button is not shown. Do not fail desktop proof because that button is absent.
 - The brand name in the nav is `Wince Larcen`, not the full document title.
-- The current route is underlined. That style is not a separate control.
+- On desktop the current route is underlined. In the mobile menu the current route is medium weight, without an underline. That style is not a separate control.
 - `/awards` is a placeholder with the coming-soon sentence. It is not a 404.
 - Hero words start transparent. Wait until `use.` is visible before calling the home screen proved.
 - A nav click updates the URL a moment later. Snapshot again until the path and heading match. The first snapshot can still show the previous page.
