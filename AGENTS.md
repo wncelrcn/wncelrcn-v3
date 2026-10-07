@@ -28,7 +28,7 @@ These are non-negotiable. Do not introduce alternatives.
 | Text | `#000000` | Primary ink (`--color-ink`) |
 
 - **Icons**: Lucide (`lucide-react`). No emojis in UI, copy, alt text, or commits, except the intentional waving-hand emoji after the About greeting in `components/sections/About.tsx`. Do not remove it.
-- **Motion**: entrance/scroll/sequence motion goes through GSAP + `@gsap/react` (`useGSAP`) via `@/lib/animations/gsap`. Scroll-triggered reveals use `ScrollReveal` (IntersectionObserver + GSAP); mount reveals use `Reveal`. Do not register ScrollTrigger unless an ADR supersedes `docs/adr/0001-scroll-reveal-strategy.md`. Instant hover/active feedback may use Tailwind transitions; `animate-wave`/`animate-blink` micro-loops stay with `motion-reduce` guards. Honor `prefers-reduced-motion`. Do not add a second JS animation library.
+- **Motion**: entrance/scroll/sequence motion goes through GSAP + `@gsap/react` (`useGSAP`) via `@/lib/animations/gsap`. The one-shot scroll observer is `observeOnce` in `@/lib/animations/when-visible`. `ScrollReveal` is the single fade/rise. A sequenced entrance (About Me) calls `observeOnce` and keeps its own timeline. Mount reveals use `Reveal`. Do not register ScrollTrigger unless an ADR supersedes `docs/adr/0001-scroll-reveal-strategy.md`. Instant hover/active feedback may use Tailwind transitions; `animate-wave`/`animate-blink` micro-loops stay with `motion-reduce` guards. Honor `prefers-reduced-motion`. Do not add a second JS animation library.
 - Reuse existing tokens in `app/globals.css`. Do not hardcode a parallel palette.
 
 ## Working Rules

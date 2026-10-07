@@ -1,7 +1,9 @@
 # Design: Professional Personal Portfolio (wncelrcn-v3)
 
+> Historical scaffold spec from 2026-07-14. Living decisions are `CONTEXT.md` and `docs/adr/`. Scroll motion does not use ScrollTrigger (ADR-0001). shadcn has been removed.
+
 **Date:** 2026-07-14
-**Status:** Draft — awaiting user review
+**Status:** Superseded
 **Owner:** Wince Rivano (wncelrcn)
 
 ## 1. Purpose

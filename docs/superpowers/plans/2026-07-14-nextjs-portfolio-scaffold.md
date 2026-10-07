@@ -1,5 +1,7 @@
 # Next.js Portfolio Scaffold Implementation Plan
 
+> Historical scaffold plan from 2026-07-14. Do not implement from this file. Living decisions are `CONTEXT.md`, `AGENTS.md`, and `docs/adr/`. Scroll motion does not use ScrollTrigger (ADR-0001). shadcn has been removed.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Scaffold a correctly configured Next.js portfolio app (Tailwind + shadcn/ui + GSAP) with the routing, section, token, and animation foundations ready for the Figma design to be translated into.

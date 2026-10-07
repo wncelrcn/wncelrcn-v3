@@ -22,7 +22,7 @@
       "description": "Refactor About to the updated design: About Me / Work Experience / Education tabs; company-grouped experience (GoTyme Bank roles, Neko Labs Co-Founder) with Instrument Serif Italic meta lines; avatar + greeting + serif-italic role line. Waving-hand emoji stays. Project cards stay empty until their design lands.",
       "dependencies": ["feat-001", "feat-002"],
       "status": "done",
-      "evidence": "./init.sh passed 2026-09-15 (26 tests). About Me / Work Experience / Education tabs; default About Me blank; Work Experience grouped from Figma 38:158; Education is Mapúa MCL only. Greeting avatar and copy use separate ScrollReveals; tab panels are outside that wrapper. Work/Education company and institution groups stagger in with Reveal (0.1s, y=16) on tab change. Waving-hand emoji kept. 2026-09-28: About Me body shipped from Figma 37:2. Later the same day: About Me prose and Company mentions read Company records (site URL on the Company, decorative logos, shared observeOnce); hero reading order lives in lockup.ts. HeartPencil and Gears timelines unchanged."
+      "evidence": "./init.sh passed 2026-09-28 (37 tests). About Me body is aboutMe records with Company mentions; GoTyme Bank href lives on the Company. Work Experience grouped from Figma 38:158 and Education is Mapúa MCL only, both with logo files (decorative alt). Greeting avatar and copy use separate ScrollReveals; tab panels are outside that wrapper. Work/Education groups stagger in with Reveal (0.1s, y=16). About Me uses observeOnce plus its own timeline. Waving-hand emoji kept. Hero reading order lives in lockup.ts."
     },
     {
       "id": "feat-004",

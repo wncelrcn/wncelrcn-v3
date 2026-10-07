@@ -215,7 +215,7 @@ _Avoid_: provider, company (that is Work Experience)
 - Highlight modal day-one copy — resolved: placeholder fields are allowed on **Project highlights** too; configuration lives on the **Project** record.
 - "Icon" on a Certification card was used for both the issuer mark and the circular arrow — resolved: the circular arrow opens the **Certification link**; the issuer mark does not.
 - **View Certification** vs the circular arrow as separate targets — resolved: they are one control that opens the **Certification link**. Title and issuer mark stay inert.
-- IBM / Databricks marks in Figma Desktop-6 — resolved: **Placeholder logos** for the **Issuer**, same rule as Company / Institution / Project highlight.
+- IBM / Databricks marks in Figma Desktop-6 — resolved: **Placeholder logos** for the **Issuer**, same as a **Project highlight**. **Company** and **Institution** marks are real logo files.
 - Dummy **Certification** count — resolved: twelve cards matching the frame, data-driven, same approach as **Project listings**.
 - Reuse with Awards — resolved: the **Certification** card is Certification-only. Awards gets its own tile when that frame exists. Shared pieces are **Section**, **ScrollReveal**, tokens, and the record-array pattern, not a generic credential component.
 - **Certification link** navigation — resolved: new tab (`target="_blank"`), not a same-tab replace.
