@@ -146,7 +146,7 @@ export const education: Institution[] = [
 /** A slice of an About Me paragraph: plain text, serif-italic emphasis, the thinking spark, or a Company mention. */
 export type AboutRun =
   | { kind: "text"; text: string }
-  | { kind: "em"; text: string; flow?: true; wave?: true }
+  | { kind: "em"; text: string; flow?: true }
   | { kind: "spark" }
   | { kind: "build" }
   | { kind: "company"; id: string };
@@ -164,7 +164,7 @@ export const aboutMe: AboutRun[][] = [
   ],
   [
     { kind: "text", text: "I care deeply about " },
-    { kind: "em", text: "craft, clarity, and how things feel to use", wave: true },
+    { kind: "em", text: "craft, clarity, and how things feel to use", flow: true },
     {
       kind: "text",
       text: ", believing that the best engineering doesn\u2019t just work on paper, it gives people their time back.",
@@ -172,14 +172,14 @@ export const aboutMe: AboutRun[][] = [
   ],
   [
     { kind: "text", text: "Right now, I\u2019m an " },
-    { kind: "em", text: "AI Engineer" },
+    { kind: "em", text: "AI Engineer", flow: true },
     { kind: "text", text: " at " },
     { kind: "company", id: "gotymex" },
     { kind: "text", text: ", where I build custom AI systems for the business." },
   ],
   [
     { kind: "text", text: "Outside of that, I\u2019m the " },
-    { kind: "em", text: "Co-Founder" },
+    { kind: "em", text: "Co-Founder", flow: true },
     { kind: "text", text: " of " },
     { kind: "company", id: "neko-labs" },
     {

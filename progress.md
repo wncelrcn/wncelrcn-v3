@@ -2,12 +2,14 @@
 
 ## Current State
 
-**Last Updated:** 2026-10-07
+**Last Updated:** 2026-10-18
 **Active Feature:** About Me build mark — done
 
 ## Status
 
 ### What's Done
+
+- [x] 2026-10-18: All five About Me emphasis phrases use the blue stream (`text-stream`, 2.8s). The rainbow `text-rgb` path is gone.
 
 - [x] 2026-10-07: “thinks like a designer” and “builds with intention” use a continuous blue sweep (`text-stream`, 2.8s). Spark blue, light blue, and deep blue repeat with no ink gap. Reduced motion keeps the phrases in ink.
 

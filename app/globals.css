@@ -35,7 +35,6 @@
   --animate-blink: blink 1s step-end infinite;
   --animate-menu-in: menu-in 200ms ease-out;
   --animate-stream: stream 2.8s linear infinite;
-  --animate-rgb: stream 4.2s linear infinite;
 }
 
 :root {
@@ -114,32 +113,6 @@
   }
 }
 
-/* Continuous rainbow. The pattern repeats once inside the background so the sweep loops without a black gap. */
-@utility text-rgb {
-  background-image: linear-gradient(
-    90deg,
-    #e10600 0%,
-    #ffb000 8%,
-    #ffe14a 16%,
-    #21c45a 24%,
-    #2f6fed 32%,
-    #9b4dff 40%,
-    #e10600 50%,
-    #ffb000 58%,
-    #ffe14a 66%,
-    #21c45a 74%,
-    #2f6fed 82%,
-    #9b4dff 90%,
-    #e10600 100%
-  );
-  background-size: 200% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
 @utility text-stream {
   background-image: linear-gradient(
     90deg,
@@ -186,8 +159,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .text-stream,
-  .text-rgb {
+  .text-stream {
     animation: none;
     color: var(--color-ink);
     background-image: none;

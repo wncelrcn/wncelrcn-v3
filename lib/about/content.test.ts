@@ -142,7 +142,17 @@ describe("About Me", () => {
     expect(aboutMe[1][1]).toEqual({
       kind: "em",
       text: "craft, clarity, and how things feel to use",
-      wave: true,
+      flow: true,
+    });
+    expect(aboutMe[2][1]).toEqual({
+      kind: "em",
+      text: "AI Engineer",
+      flow: true,
+    });
+    expect(aboutMe[3][1]).toEqual({
+      kind: "em",
+      text: "Co-Founder",
+      flow: true,
     });
   });
 
