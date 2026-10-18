@@ -16,12 +16,21 @@ import {
   type Company,
 } from "@/lib/about/content";
 
-function Em({ children, flow }: { children: ReactNode; flow?: true }) {
+function Em({
+  children,
+  flow,
+  blue,
+}: {
+  children: ReactNode;
+  flow?: true;
+  blue?: true;
+}) {
   return (
     <em
       className={cn(
         "font-serif italic",
         flow && "animate-stream text-stream motion-reduce:animate-none",
+        blue && "text-spark",
       )}
     >
       {children}
@@ -90,7 +99,7 @@ function Runs({ runs }: { runs: AboutRun[] }) {
         return <Fragment key={index}>{run.text}</Fragment>;
       case "em":
         return (
-          <Em key={index} flow={run.flow}>
+          <Em key={index} flow={run.flow} blue={run.blue}>
             {run.text}
           </Em>
         );

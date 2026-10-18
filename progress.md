@@ -9,7 +9,7 @@
 
 ### What's Done
 
-- [x] 2026-10-18: All five About Me emphasis phrases use the blue stream (`text-stream`, 2.8s). The rainbow `text-rgb` path is gone.
+- [x] 2026-10-18: The craft phrase uses the same blue stream as the designer and builder lines (`text-stream`, 2.8s). “AI Engineer” and “Co-Founder” are solid spark blue (`text-spark`) with no sweep. The rainbow `text-rgb` path is gone.
 
 - [x] 2026-10-07: “thinks like a designer” and “builds with intention” use a continuous blue sweep (`text-stream`, 2.8s). Spark blue, light blue, and deep blue repeat with no ink gap. Reduced motion keeps the phrases in ink.
 

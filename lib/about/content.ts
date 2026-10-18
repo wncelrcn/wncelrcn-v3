@@ -146,7 +146,7 @@ export const education: Institution[] = [
 /** A slice of an About Me paragraph: plain text, serif-italic emphasis, the thinking spark, or a Company mention. */
 export type AboutRun =
   | { kind: "text"; text: string }
-  | { kind: "em"; text: string; flow?: true }
+  | { kind: "em"; text: string; flow?: true; blue?: true }
   | { kind: "spark" }
   | { kind: "build" }
   | { kind: "company"; id: string };
@@ -172,14 +172,14 @@ export const aboutMe: AboutRun[][] = [
   ],
   [
     { kind: "text", text: "Right now, I\u2019m an " },
-    { kind: "em", text: "AI Engineer", flow: true },
+    { kind: "em", text: "AI Engineer", blue: true },
     { kind: "text", text: " at " },
     { kind: "company", id: "gotymex" },
     { kind: "text", text: ", where I build custom AI systems for the business." },
   ],
   [
     { kind: "text", text: "Outside of that, I\u2019m the " },
-    { kind: "em", text: "Co-Founder", flow: true },
+    { kind: "em", text: "Co-Founder", blue: true },
     { kind: "text", text: " of " },
     { kind: "company", id: "neko-labs" },
     {

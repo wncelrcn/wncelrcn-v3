@@ -3,12 +3,12 @@
 ## Current Objective
 
 - Goal: real Certification records, or the Awards page
-- Current status: GoTymeX content edit, plus the About Me spark and build mark. All five About Me emphasis phrases use the blue stream. `./init.sh` passed 2026-10-07 (39 tests). Verification map drift for the nav underline and the project dialog was corrected in the same commit.
+- Current status: GoTymeX content edit, plus the About Me spark and build mark. The craft phrase uses the blue stream. “AI Engineer” and “Co-Founder” are solid spark blue with no sweep. `./init.sh` passed 2026-10-07 (39 tests). Verification map drift for the nav underline and the project dialog was corrected in the same commit.
 - Branch: `main`
 
 ## Completed
 
-- [x] 2026-10-18: All five About Me emphasis phrases use the blue stream (`flow: true`, `text-stream`). The rainbow `wave` path is removed.
+- [x] 2026-10-18: The craft phrase uses the blue stream (`flow: true`, `text-stream`). “AI Engineer” and “Co-Founder” are solid spark blue (`blue: true`). The rainbow `wave` path is removed.
 
 - [x] 2026-10-07: About Me thinking spark restored to the CSS frame cycle of the eight `claude-thinking.gif` traces. GSAP spin removed.
 
