@@ -1,31 +1,33 @@
-# wncelrcn-v3
+# Wince Larcen Rivano
 
-Professional personal portfolio — Next.js (App Router) + TypeScript + Tailwind CSS v4 + GSAP.
+I turn great ideas into things people actually use.
 
-Design implemented from Figma: *Portfolio Redesign V3*.
+This is the third version of my portfolio. I'm an engineer who thinks like a designer and builds with intention. I care about craft, clarity, and how things feel to use, because the best engineering doesn't just work on paper, it gives people their time back.
 
-## Development
+## Right now
 
-```bash
-npm run dev      # start the dev server (Turbopack)
-npm run build    # production build
-npm run lint     # lint
-npm run test     # run unit tests (Vitest)
-```
+- **AI Engineer** at [GoTymeX](https://www.gotyme.com/gotyme-x), building custom AI systems for the business.
+- **Co-Founder** of Neko Labs, where we build and ship our own products.
+- Finishing a **BS in Computer Science, specializing in Machine Learning**, at Mapúa Malayan Colleges Laguna.
 
-## Structure
+## Before this
 
-- `app/` — routes (`/`, `/projects`, `/certifications`, `/awards`), root layout, global styles
-- `components/sections/` — homepage sections (Nav, Hero, About, FeaturedProjects, Footer)
-- `components/about/` — About Me, Work Experience, Education
-- `components/sections/hero/` — headline lockup and doodles
-- `components/projects/` — Projects page and Project modal
-- `components/certifications/` — Certifications page
-- `components/animations/` — Reveal, ScrollReveal, Typewriter
-- `lib/` — content, routes, utilities, and animation setup
-- `public/figma/` — design assets exported from Figma
-- `CONTEXT.md` and `docs/adr/` — living domain language and decisions
+- AI Engineer Rookie at [GoTyme Bank](https://www.gotyme.com.ph/)
+- Frontend Dev Trainee and UI/UX Designer at Codebility
+- Software Engineering Fellow at Headstarter AI
 
-Design tokens live in `app/globals.css` (`@theme`).
+## What's inside
 
-`docs/superpowers/` is the July 2026 scaffold. It is not the current design: scroll motion follows ADR-0001 (no ScrollTrigger), and shadcn has been removed.
+The projects I'm proudest of, the certifications I've earned, and the hackathons I've competed in. Every page starts as my own design before it becomes code.
+
+Made with Next.js, Tailwind CSS, and GSAP. Set in Instrument Sans and Instrument Serif.
+
+## Say hi
+
+- Email: [rivanowincelarcen@gmail.com](mailto:rivanowincelarcen@gmail.com)
+- LinkedIn: [Wince Larcen Rivano](https://www.linkedin.com/in/wincelarcen)
+- GitHub: [@wncelrcn](https://github.com/wncelrcn)
+- Instagram: [@wince.lrcn](https://www.instagram.com/wince.lrcn)
+- TikTok: [@wncelrcn_dev](https://www.tiktok.com/@wncelrcn_dev)
+
+&copy; Wince Larcen Rivano 2026
