@@ -38,6 +38,7 @@ describe("navLinks", () => {
   it("points nav hrefs at real routes", () => {
     expect(existsSync(join(process.cwd(), "app", "projects", "page.tsx"))).toBe(true);
     expect(existsSync(join(process.cwd(), "app", "certifications", "page.tsx"))).toBe(true);
+    expect(existsSync(join(process.cwd(), "app", "awards", "page.tsx"))).toBe(true);
     expect(existsSync(join(process.cwd(), "app", "[slug]", "page.tsx"))).toBe(true);
 
     for (const link of navLinks) {
@@ -48,7 +49,7 @@ describe("navLinks", () => {
 });
 
 describe("getSlugPageParams", () => {
-  it("omits dedicated /projects and /certifications routes", () => {
-    expect(getSlugPageParams().map((param) => param.slug)).toEqual(["awards"]);
+  it("omits dedicated /projects, /certifications, and /awards routes", () => {
+    expect(getSlugPageParams()).toEqual([]);
   });
 });

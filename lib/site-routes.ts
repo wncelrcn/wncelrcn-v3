@@ -26,7 +26,7 @@ export const siteRoutes: SiteRoute[] = [
     label: "Awards",
     slug: "awards",
     title: "Awards",
-    description: "Awards, honors, and the moments worth remembering — coming soon.",
+    description: "Placeholder award rows until the real list replaces them.",
     metaDescription: "Awards and honors earned by Wince Larcen Rivano.",
   },
 ];
@@ -40,7 +40,7 @@ export function getSiteRoute(slug: string): SiteRoute | undefined {
   return siteRoutes.find((route) => route.slug === slug);
 }
 
-const dedicatedSlugs = new Set(["projects", "certifications"]);
+const dedicatedSlugs = new Set(["projects", "certifications", "awards"]);
 
 /** Params for `app/[slug]`. Dedicated routes like `/projects` are excluded. */
 export function getSlugPageParams() {

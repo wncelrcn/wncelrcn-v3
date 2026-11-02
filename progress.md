@@ -2,14 +2,26 @@
 
 ## Current State
 
-**Last Updated:** 2026-10-18
-**Active Feature:** About Me build mark — done
+**Last Updated:** 2026-11-02
+**Active Feature:** Awards page — placeholder rows from Figma 179:2
 
 ## Status
 
 ### What's Done
 
+- [x] 2026-11-02: Awards spacing and photos. Heading-to-list gap is `mt-10 md:mt-12` (48px), the same as Projects and Certifications. Records take `photos: { src, alt }[]` and an optional `blurb`. `components/awards/AwardPhotos.tsx` is a scroll-snap carousel: swipe on touch, arrows on hover or focus, counter only with 2+ photos, an empty card with no photos. On mobile the month sits 12px above the event. `./init.sh` passed (47 tests). Browser check at 1276px and 390px.
+
+- [x] 2026-11-02: `/awards` is a dedicated page. Four placeholder rows from Figma 179:2 (month, event, black serif-italic place, sentence, empty photo card with `1 / 3`). Place line is `text-ink`, not spark blue. `dedicatedSlugs` includes awards, so `[slug]` no longer claims it.
+
+- [x] 2026-10-23: Work Experience order is newest start first: GoTymeX, Neko Labs, GoTyme Bank, Codebility, Headstarter AI. Neko Labs (Apr 2026 - Present) sits above AI Engineer Rookie (Jan 2026 - Jul 2026). Content tests passed (14). Browser at 1280px showed GoTymeX, then Neko Labs.
+
+- [x] 2026-10-23: Removed the Freelance company (Freelance Software Developer, Dec 2024 - Feb 2025) from Work Experience. Order is now GoTymeX, GoTyme Bank, Neko Labs, Codebility, Headstarter AI. Content tests passed (14). Browser at 1280px showed Codebility followed by Headstarter AI.
+
 - [x] 2026-10-18: The craft phrase uses the same blue stream as the designer and builder lines (`text-stream`, 2.8s). “AI Engineer” and “Co-Founder” are solid spark blue (`text-spark`) with no sweep. The rainbow `text-rgb` path is gone.
+
+- [x] 2026-10-18: `/projects` returned 500 (`ComponentMod.handler is not a function`) because Turbopack treated `/Users/wincelarcen/package-lock.json` as the workspace root. `next.config.ts` now pins `turbopack.root` and `outputFileTracingRoot` to this repo. After a fresh dev cache, `/`, `/projects`, `/certifications`, and `/awards` returned 200 and the lockfile warning was gone.
+
+- [x] 2026-10-10: `npm run dev` drops `.next/dev` when its Turbopack cache was written for another directory. The move from `Documents/CodingStuff` left absolute paths in that cache, and Turbopack panicked with “Next.js package not found” while writing `/projects`. After the reset, `/projects`, `/`, and `/certifications` returned 200 with no panic.
 
 - [x] 2026-10-07: “thinks like a designer” and “builds with intention” use a continuous blue sweep (`text-stream`, 2.8s). Spark blue, light blue, and deep blue repeat with no ink gap. Reduced motion keeps the phrases in ink.
 

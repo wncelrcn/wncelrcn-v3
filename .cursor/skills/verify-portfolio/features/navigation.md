@@ -1,6 +1,6 @@
 # Site navigation
 
-The sticky nav sends a visitor home, to Projects, to Certifications, and to the Awards placeholder. On a narrow screen those links sit behind an Open menu button.
+The sticky nav sends a visitor home, to Projects, to Certifications, and to Awards. On a narrow screen those links sit behind an Open menu button.
 
 ## Sub-features
 
@@ -27,7 +27,7 @@ Preconditions:
 - **Home.** Open `$URL/`. The link `Wince Larcen` is present, and the heading text includes `I`, `turn`, and `use.` after the hero entrance finishes.
 - **Desktop Projects.** Choose the link named `Projects`. The path becomes `/projects` and the heading is `Projects`.
 - **Desktop Certifications.** From the nav, choose `Certifications`. The path becomes `/certifications` and the heading is `Certifications`.
-- **Desktop Awards.** Choose `Awards`. The path becomes `/awards`, the heading is `Awards`, and the page includes `coming soon`.
+- **Desktop Awards.** Choose `Awards`. The path becomes `/awards`, the heading is `Awards`, and the page includes `ASEAN AI Hackathon`.
 - **Brand.** From `/awards`, choose `Wince Larcen`. The path becomes `/` and the hero heading is back.
 - **Mobile menu.** Set the viewport to 390×844, reload `$URL/`, and choose the button `Open menu` (`aria-expanded` becomes true). Choose `Projects`. The path becomes `/projects` and the heading is `Projects`. The button name returns to `Open menu` after the menu closes.
 - **Proof.** After the Projects click, save `artifacts/navigation/projects.aria.txt`, `artifacts/navigation/projects.png`, and `artifacts/navigation/action.txt`. The snapshot includes the `Projects` link and the `Projects` heading.
@@ -38,7 +38,7 @@ Preconditions:
 - At 768px and above the menu button is not shown. Do not fail desktop proof because that button is absent.
 - The brand name in the nav is `Wince Larcen`, not the full document title.
 - On desktop the current route is underlined. In the mobile menu the current route is medium weight, without an underline. That style is not a separate control.
-- `/awards` is a placeholder with the coming-soon sentence. It is not a 404.
+- `/awards` lists placeholder award rows. It is not a 404, and it does not say coming soon.
 - Hero words start transparent. Wait until `use.` is visible before calling the home screen proved.
 - A nav click updates the URL a moment later. Snapshot again until the path and heading match. The first snapshot can still show the previous page.
 - `Open Next.js Dev Tools` is the dev-server overlay. It is not part of the portfolio. Do not click it.

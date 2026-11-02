@@ -112,6 +112,14 @@ _Avoid_: view credential, see certificate, live site
 The organization that granted a Certification. Shown as a Placeholder logo on the card until the real mark is provided.
 _Avoid_: provider, company (that is Work Experience)
 
+**Award**:
+One placeholder row on the Awards page: month, event, italic place, one sentence, and an empty photo card with a count. The place line is black serif italic. The four rows match Figma Awards - Mockup (`179:2`) until real awards replace the records.
+_Avoid_: Certification, credential card
+
+**Awards page**:
+The `/awards` route. It lists every Award. It does not reuse the Certification card.
+_Avoid_: coming soon, honors page
+
 ## Relationships
 
 - The **About section** contains exactly three tabs: **About Me**, **Work Experience**, **Education**
@@ -142,7 +150,10 @@ _Avoid_: provider, company (that is Work Experience)
 - The title and **Issuer** mark on a **Certification** card are not the **Certification link**
 - Each **Certification** uses a **Placeholder logo** for its **Issuer** until the real mark is provided
 - The **Certifications page** ships twelve dummy **Certification** cards matching Figma Desktop-6; filling real credentials is an edit to the records, not the layout
-- A **Certification** card is not an Awards tile
+- A **Certification** card is not an **Award**
+- Every **Award** appears on the **Awards page**
+- An **Award** is placeholder copy until a real record replaces it. The photo card stays empty and shows `1 / 3`
+- The **Award** place line is black serif italic
 - A **Certification link** opens in a new tab; dummy hrefs are placeholder URLs on the records until real ones replace them
 
 ## Example dialogue
@@ -217,5 +228,5 @@ _Avoid_: provider, company (that is Work Experience)
 - **View Certification** vs the circular arrow as separate targets — resolved: they are one control that opens the **Certification link**. Title and issuer mark stay inert.
 - IBM / Databricks marks in Figma Desktop-6 — resolved: **Placeholder logos** for the **Issuer**, same as a **Project highlight**. **Company** and **Institution** marks are real logo files.
 - Dummy **Certification** count — resolved: twelve cards matching the frame, data-driven, same approach as **Project listings**.
-- Reuse with Awards — resolved: the **Certification** card is Certification-only. Awards gets its own tile when that frame exists. Shared pieces are **Section**, **ScrollReveal**, tokens, and the record-array pattern, not a generic credential component.
+- Reuse with Awards — resolved: the **Certification** card is Certification-only. An **Award** is its own row from Figma `179:2`. Shared pieces are **Section**, **ScrollReveal**, tokens, and the record-array pattern.
 - **Certification link** navigation — resolved: new tab (`target="_blank"`), not a same-tab replace.

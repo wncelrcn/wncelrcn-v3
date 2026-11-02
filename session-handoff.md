@@ -3,7 +3,7 @@
 ## Current Objective
 
 - Goal: real Certification records, or the Awards page
-- Current status: GoTymeX content edit, plus the About Me spark and build mark. The craft phrase uses the blue stream. “AI Engineer” and “Co-Founder” are solid spark blue with no sweep. `./init.sh` passed 2026-10-07 (39 tests). Verification map drift for the nav underline and the project dialog was corrected in the same commit.
+- Current status: `/awards` lists four placeholder rows from Figma 179:2 with a photo carousel. To fill a row, edit its record in `lib/awards.ts` and put photos in `public/awards/<id>/`. The italic place line is black. Work Experience is newest start first. Freelance is gone. `./init.sh` passed 2026-11-02 (47 tests). On 2026-10-18 `turbopack.root` was pinned to this repo so a home-directory lockfile cannot become the workspace root. Restart `npm run dev` after that change.
 - Branch: `main`
 
 ## Completed

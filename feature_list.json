@@ -55,6 +55,14 @@
       "dependencies": ["feat-006"],
       "status": "done",
       "evidence": "./init.sh passed 2026-09-15 (31 tests). Dedicated /certifications (out of [slug]). Twelve dummy Certification cards; issuer Placeholder logos; View Certification + circular arrow open the Certification link in a new tab. Awards stays on [slug]."
+    },
+    {
+      "id": "feat-008",
+      "name": "Awards page",
+      "description": "Build /awards from Figma Awards - Mockup (179:2): ledger rows of month, event, serif-italic place, optional blurb, and a photo carousel. Data-driven records in lib/awards.ts. Dedicated route.",
+      "dependencies": ["feat-007"],
+      "status": "done",
+      "evidence": "./init.sh passed 2026-11-02 (47 tests). Heading-to-list gap is 48px, the same as /projects and /certifications. Award records take photos: { src, alt }[] and an optional blurb. AwardPhotos is a scroll-snap carousel: swipe on touch, hover/focus arrows on fine pointers, counter only with 2+ photos. Browser check at 1276px (paging 1/3 to 3/3, Next hidden at the end) and 390px."
     }
   ]
 }

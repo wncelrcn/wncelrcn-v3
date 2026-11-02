@@ -60,19 +60,6 @@ export const workExperience: Company[] = [
     ],
   },
   {
-    id: "gotyme-bank",
-    name: "GoTyme Bank",
-    logo: "/figma/gotyme-logo.png",
-    href: "https://www.gotyme.com.ph/",
-    roles: [
-      {
-        id: "gotyme-bank-ai-engineer-rookie",
-        title: "AI Engineer Rookie",
-        meta: "Jan 2026 - Jul 2026 • Quezon City, Philippines • Internship",
-      },
-    ],
-  },
-  {
     id: "neko-labs",
     name: "Neko Labs",
     logo: "/figma/neko-labs-logo.jpg",
@@ -86,6 +73,19 @@ export const workExperience: Company[] = [
     ],
   },
   {
+    id: "gotyme-bank",
+    name: "GoTyme Bank",
+    logo: "/figma/gotyme-logo.png",
+    href: "https://www.gotyme.com.ph/",
+    roles: [
+      {
+        id: "gotyme-bank-ai-engineer-rookie",
+        title: "AI Engineer Rookie",
+        meta: "Jan 2026 - Jul 2026 • Quezon City, Philippines • Internship",
+      },
+    ],
+  },
+  {
     id: "codebility",
     name: "Codebility",
     logo: "/figma/codebility-logo.jpg",
@@ -95,19 +95,6 @@ export const workExperience: Company[] = [
         id: "codebility-frontend-trainee",
         title: "Frontend Dev Trainee & UI/UX Designer",
         meta: "Mar 2025 - Aug 2025 • Remote • Internship",
-      },
-    ],
-  },
-  {
-    id: "freelance",
-    name: "Freelance",
-    logo: "/figma/freelance-logo.png",
-    rounded: true,
-    roles: [
-      {
-        id: "freelance-software-developer",
-        title: "Freelance Software Developer",
-        meta: "Dec 2024 - Feb 2025 • Remote • Freelance",
       },
     ],
   },

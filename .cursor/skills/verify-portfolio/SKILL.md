@@ -5,7 +5,7 @@ description: "Drive the wncelrcn-v3 portfolio web UI the way a visitor does. Lau
 
 # Verify the portfolio
 
-wncelrcn-v3 is a read-only Next.js portfolio. A visitor uses the sticky nav, the homepage (hero, about tabs, featured-project covers), `/projects` modals, `/certifications`, the `/awards` placeholder, and the footer. There is no auth, database, or required env var. Content is compiled into the page.
+wncelrcn-v3 is a read-only Next.js portfolio. A visitor uses the sticky nav, the homepage (hero, about tabs, featured-project covers), `/projects` modals, `/certifications`, `/awards`, and the footer. There is no auth, database, or required env var. Content is compiled into the page.
 
 Drive only a server this skill started. Next.js allows one `next dev` process per output directory. This launcher sets `VERIFY_DIST_DIR` to `.next-verify` (dev files land in `.next-verify/dev`) so it does not take the `.next` lock and does not stop a server already running on port 3000. Never kill the pid from an "already running" message. A second verification instance needs its own `VERIFY_PORT`, `VERIFY_RUN_DIR`, and `VERIFY_DIST_DIR`.
 

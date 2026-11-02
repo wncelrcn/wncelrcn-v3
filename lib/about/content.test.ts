@@ -26,10 +26,9 @@ describe("Work Experience", () => {
   it("lists companies in frame order", () => {
     expect(workExperience.map((company) => company.name)).toEqual([
       "GoTymeX",
-      "GoTyme Bank",
       "Neko Labs",
+      "GoTyme Bank",
       "Codebility",
-      "Freelance",
       "Headstarter AI",
     ]);
   });
@@ -52,7 +51,7 @@ describe("Work Experience", () => {
   });
 
   it("keeps the internship on GoTyme Bank", () => {
-    const bank = workExperience[1];
+    const bank = workExperience[2];
     expect(bank.name).toBe("GoTyme Bank");
     expect(bank.roles.map((role) => role.title)).toEqual(["AI Engineer Rookie"]);
   });
